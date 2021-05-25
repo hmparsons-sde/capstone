@@ -1,4 +1,4 @@
-## Front-end Capstone
+## Front-end Capstone [![Netlify Status](https://api.netlify.com/api/v1/badges/ce8df96d-e54b-49a6-bae4-1ba65f9950b0/deploy-status)](https://app.netlify.com/sites/hmp-pressure/deploys)
 
 ### Project Name
 "pressure"
@@ -16,7 +16,7 @@ As somebody living with chronic migraines, I start my day by checking the barome
 ### Wireframe
 https://bit.ly/3wCW1gH
 ### Deployed project
-
+https://hmp-pressure.netlify.app/
 ### Project board
 https://github.com/hmparsons-sde/capstone/projects/1
 ### Feature List + User Stories
