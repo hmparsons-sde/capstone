@@ -14,11 +14,11 @@ As somebody living with chronic migraines, I start my day by checking the barome
 ### ERD
 
 ### Wireframe
-
+https://bit.ly/3wCW1gH
 ### Deployed project
 
 ### Project board
-
+https://github.com/hmparsons-sde/capstone/projects/1
 ### Feature List + User Stories
 - Google authentication
 - Users can create new readings.
@@ -32,4 +32,3 @@ As somebody living with chronic migraines, I start my day by checking the barome
 ### Screenshots
 
 ### Loom Video Walk-through
-
