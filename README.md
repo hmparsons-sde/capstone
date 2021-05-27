@@ -24,8 +24,52 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Users can assign readings to separate “Trips.”
 - Users can flag readings as low, moderate, or high risk.
 - Users can update flags.
+### Screenshots
+### Loom Video Walk-through
 ### Sample Postman Data
 
-### Screenshots
-
-### Loom Video Walk-through
+```GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
+{
+    "coord": {
+        "lon": -85.2802,
+        "lat": 35.1273
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 295.59,
+        "feels_like": 295.59,
+        "temp_min": 293.66,
+        "temp_max": 297.77,
+        "pressure": 1018,
+        "humidity": 65
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 1.41,
+        "deg": 293,
+        "gust": 1.43
+    },
+    "clouds": {
+        "all": 100
+    },
+    "dt": 1622081668,
+    "sys": {
+        "type": 2,
+        "id": 2039051,
+        "country": "US",
+        "sunrise": 1622025029,
+        "sunset": 1622076376
+    },
+    "timezone": -14400,
+    "id": 0,
+    "name": "Chattanooga",
+    "cod": 200
+}```
