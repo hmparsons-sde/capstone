@@ -28,8 +28,8 @@ https://github.com/hmparsons-sde/capstone/projects/1
 ### Loom Video Walk-through
 ### Sample Postman Data
 
-```GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
-{
+GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
+```{
     "coord": {
         "lon": -85.2802,
         "lat": 35.1273
@@ -72,4 +72,4 @@ https://github.com/hmparsons-sde/capstone/projects/1
     "id": 0,
     "name": "Chattanooga",
     "cod": 200
-}```
+}
