@@ -12,8 +12,7 @@ This app allows the user to find the barometric pressure in any submitted geogra
 As somebody living with chronic migraines, I start my day by checking the barometric pressure, so that I can anticipate my day. Now that I am able to travel, I want a simple way to keep an eye on the pressure in multiple places. My most frequent trips entail quite a few changes in altitude and, consequently, flipping through multiple apps to anticipate when I may need extra medications or darker sunglasses. 
 
 ### ERD
-<iframe width="560" height="315" src='https://dbdiagram.io/embed/60aee9e5b29a09603d16b492'> </iframe>
-
+https://bit.ly/34j8vhe
 ### Wireframe
 https://bit.ly/3wCW1gH
 ### Deployed project
