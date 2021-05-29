@@ -30,6 +30,7 @@ https://github.com/hmparsons-sde/capstone/projects/1
 ### Loom Video Walk-through
 ### Contributors
 Holly Parsons (@hmparsons-sde)
+
 Portfolio site: https://hmp-portfolio-site.netlify.app/
 ### Sample Postman Data
 GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
