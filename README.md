@@ -6,7 +6,9 @@ This project is the culmination of the front-end semester at Nashville Software 
 
 This app allows the user to find the barometric pressure in any submitted geography and to aggregate the data from multiple locations in a simple interface. The app will fetch location by city name or postal code. The user will be able to specify units of measurement - hPa, mmHg, inches Hg, or mbar. Once that reading prints to the interface, the user can continue adding readings from other locales. The user will be able to delete readings or to edit the reading. Edit functionality will include the ability to change locales or units of measurement. On the readings, the user can flag the likelihood of the pressure triggering a headache event - low, moderate, or high. The user can then organize readings into “trips.”
 ### Personal Motivation
-As somebody living with chronic migraines, I start my day by checking the barometric pressure, so that I can anticipate my day. Now that I am able to travel, I want a simple way to keep an eye on the pressure in multiple places. My most frequent trips entail quite a few changes in altitude and, consequently, flipping through multiple apps to anticipate when I may need extra medications or darker sunglasses. 
+As somebody living with chronic migraines, I start my day by checking the barometric pressure, so that I can anticipate my day. Now that I am able to travel, I want a simple way to keep an eye on the pressure in multiple places. My most frequent trips entail quite a few changes in altitude and, consequently, flipping through multiple apps to anticipate when I may need extra medications or darker sunglasses.
+### COLOR PALETTE
+![Capstone-Palette](https://user-images.githubusercontent.com/67122062/120078229-08b8cc00-c074-11eb-8363-3cd62a620cac.png)
 ### ERD
 https://bit.ly/3wGlNAz
 ### Wireframe
