@@ -31,6 +31,9 @@ https://github.com/hmparsons-sde/capstone/projects/1
     - Moderate - yellow color; range: 999 hPa - 1002 hPa or 1008 hPa - 1010 hPa
     - High - red color; range: 1003 hPa - 1007 hPa
 - App is fully responsive
+### Scientific Source Material
+- Okuma, Hirohisa, Yumiko Okuma, and Yasuhisa Kitagawa. 2015. “Examination of Fluctuations in Atmospheric Pressure Related to Migraine.” SpringerPlus 4 (1): 790.
+- Link to digital article: https://bit.ly/3uKIn9M
 ### Screenshots
 ### Loom Video Walk-through
 ### Contributors
