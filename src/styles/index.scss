@@ -19,6 +19,7 @@ h4,
 h5,
 h6 {
   font-family: "Raleway", sans-serif;
+  color: $mainfont;
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 300;
@@ -83,6 +84,7 @@ h6 {
 
 p {
   font-family: "Lato", sans-serif;
+  color: $secondfont;
   margin-top: 0;
 }
 
@@ -148,17 +150,87 @@ img {
   }
 }
 
-//Form
+//Form - outline sourced from Skeleton
 
 input[type="search"],
 input[type="text"],
 textarea,
 select {
   height: 38px;
-  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: #fff;
-  border: 1px solid #d1d1d1;
+  padding: 6px 10px;
+  background-color: $secondaccent;
+  border: 1px solid $accent;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box;
+}
+
+// input[type="search"],
+// input[type="text"],
+// textarea {
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+// }
+
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+label > .label-body {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: normal;
+}
+
+button,
+.button {
+  margin-bottom: 1rem;
+}
+
+input,
+textarea,
+select {
+  margin-bottom: 1.5rem;
+}
+
+p,
+form {
+  margin-bottom: 2.5rem;
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid $secondaccent;
+}
+
+.container:after,
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+}
+
+/* Larger than mini tablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
 }
