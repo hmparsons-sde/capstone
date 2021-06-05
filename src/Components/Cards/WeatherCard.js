@@ -23,3 +23,7 @@ ShowPressure.propTypes = {
 };
 
 export default ShowPressure;
+
+// on weather card, add "add to trip" button + dropdown OR "discard" to delete reading.
+// adding to a trip is "creating" (like a pin to a board)
+// get data from API + create by adding to Firebase
