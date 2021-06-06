@@ -21,6 +21,15 @@ body {
   line-height: 1.6;
 }
 
+#pressureReading {
+  width: 18rem;
+
+  &.green { background-color: $lowrisk; };
+  &.yellow { background-color: $midrisk; };
+  &.red { background-color: $highrisk; };
+  &.purple { background-color: $highaccent; };
+}
+
 h1,
 h2,
 h3,
