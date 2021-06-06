@@ -22,8 +22,8 @@ body {
 }
 
 #pressureReading {
-  width: 18rem;
-
+  width: 20rem;
+  padding: 5%;
   &.green { background-color: $lowrisk; };
   &.yellow { background-color: $midrisk; };
   &.red { background-color: $highrisk; };
@@ -106,8 +106,6 @@ p {
   margin-top: 0;
 }
 
-//Sourced from W3 Schools
-
 img {
   max-width: 100%;
   height: auto;
@@ -183,24 +181,10 @@ select {
   box-sizing: border-box;
 }
 
-// input[type="search"],
-// input[type="text"],
-// textarea {
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-// }
-
 textarea {
   min-height: 65px;
   padding-top: 6px;
   padding-bottom: 6px;
-}
-
-label > .label-body {
-  display: inline-block;
-  margin-left: 0.5rem;
-  font-weight: normal;
 }
 
 button,
@@ -253,22 +237,20 @@ hr {
 @media (min-width: 1200px) {
 }
 
-/* Grid
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-.column,
-.columns {
-  width: 100%;
-  float: left;
-  box-sizing: border-box;
-}
+// .container {
+//   position: relative;
+//   width: 100%;
+//   max-width: 960px;
+//   margin: 0 auto;
+//   padding: 0 20px;
+//   box-sizing: border-box;
+// }
+// .column,
+// .columns {
+//   width: 100%;
+//   float: left;
+//   box-sizing: border-box;
+// }
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
