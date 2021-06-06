@@ -17,7 +17,7 @@ function PressureSearch() {
         {userInput
           ? <div className="PressureContainer">
             <h1>{data.name}</h1>
-            <img src={`http://openPressuremap.org/img/wn/${data.Pressure[0].icon}@2x.png`} alt="img" />
+            <img src={`http://openweathermap.org/img/wn/${data.Pressure[0].icon}@2x.png`} alt="img" />
             <h1>{data.main.pressure} hPa</h1>
           </div>
           : null}
