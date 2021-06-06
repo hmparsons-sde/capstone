@@ -1,10 +1,17 @@
 import React from 'react';
-import PressureView from '../views/SearchView';
+import { BrowserRouter as Router } from 'react-router-dom';
+// import firebase from 'firebase';
+import NavBar from '../Components/Nav/NavBar';
+// import PressureView from '../views/SearchView';
+import Routes from '../helpers/Routes';
 
 function App() {
   return (
     <div className='App'>
-      <PressureView></PressureView>
+      <Router>
+        <NavBar/>
+        <Routes/>
+      </Router>
     </div>
   );
 }
