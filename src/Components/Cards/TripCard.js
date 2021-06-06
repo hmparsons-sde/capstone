@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function HomeView() {
+export default function TripCard() {
   return (
     <div>
-      <h1>HIIIII</h1>
+      <h1>Not Found</h1>
     </div>
   );
 }
