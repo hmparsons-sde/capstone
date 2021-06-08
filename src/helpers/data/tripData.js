@@ -4,8 +4,8 @@ import firebaseConfig from '../apiKeys';
 
 const localDb = firebaseConfig.localDbURL;
 
-const getTrips = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${localDb}/trips.json?orderBy="uid"&equalTo="${uid}"`)
+const getTrips = () => new Promise((resolve, reject) => {
+  axios.get(`${localDb}/trips.json`)
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });

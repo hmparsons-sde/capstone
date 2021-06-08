@@ -8,9 +8,10 @@ import PressureView from '../views/SearchView';
 import TripsView from '../views/Trips';
 
 export default function Routes({
-  user,
   pressure,
   setPressure,
+  trips,
+  setTrips
 }) {
   return (
     <div>
@@ -24,12 +25,14 @@ export default function Routes({
           component={() => <PressureView
             setPressure={setPressure}
             pressure={pressure}
-            user={user}
          />}
         />
         <Route
           path='/trips'
-          component={TripsView} />
+          component={() => <TripsView
+            trips={trips}
+            setTrips={setTrips}
+          />} />
         <Route
           path='*'
           component={NotFound} />
@@ -41,5 +44,7 @@ export default function Routes({
 Routes.propTypes = {
   user: PropTypes.any,
   pressure: PropTypes.any,
-  setPressure: PropTypes.func
+  setPressure: PropTypes.func,
+  trips: PropTypes.any,
+  setTrips: PropTypes.func
 };
