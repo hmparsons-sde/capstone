@@ -6,6 +6,7 @@ import {
   CardTitle
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { deleteTrip } from '../../helpers/data/tripData';
 import TripForm from '../Forms/TripForm';
 
@@ -31,10 +32,13 @@ const TripCard = ({
     }
   };
 
+  const history = useHistory();
+
   return (
     <Card body>
         <CardTitle tag="h5">{title}</CardTitle>
         <CardText>{startDate} - {endDate}</CardText>
+        <Button color="warning" onClick={() => history.push(`/trips/${firebaseKey}`)}>View Trip</Button>
         <Button color="danger" onClick={() => { handleClick('delete'); }}>Delete Trip</Button>
         <Button color="info" onClick={() => { handleClick('edit'); }}>
           {editing ? 'Close Form' : 'Edit Trip'}

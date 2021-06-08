@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import HomeView from '../views/Home';
 import NotFound from '../views/NotFound';
 import PressureView from '../views/SearchView';
-// import SingleTripView from '../views/SingleTrip';
 import TripsView from '../views/Trips';
+import SingleTripView from '../views/SingleTrip';
 
 export default function Routes({
   pressure,
@@ -19,7 +19,8 @@ export default function Routes({
         <Route
           exact
           path='/'
-          component={HomeView} />
+          component={HomeView}
+        />
         <Route
           path='/search'
           component={() => <PressureView
@@ -32,10 +33,16 @@ export default function Routes({
           component={() => <TripsView
             trips={trips}
             setTrips={setTrips}
-          />} />
+          />}
+        />
+        <Route
+          path='/trips/:id'
+          component={() => <SingleTripView/>}
+        />
         <Route
           path='*'
-          component={NotFound} />
+          component={NotFound}
+        />
       </Switch>
     </div>
   );

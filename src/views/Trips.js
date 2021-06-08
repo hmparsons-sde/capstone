@@ -48,7 +48,7 @@ export default function TripsView({ trips, setTrips }) {
           {trip.map((tripInfo) => (
             <TripCard
               key={tripInfo.firebaseKey}
-              setTrips={setTrip}
+              setTrips={setTrips}
               firebaseKey={tripInfo.firebaseKey}
               title={tripInfo.title}
               startDate={tripInfo.startDate}
