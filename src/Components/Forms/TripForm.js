@@ -3,27 +3,36 @@ import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { createTrip } from '../../helpers/data/tripData';
+import { useHistory } from 'react-router-dom';
+import { createTrip, updateTrips } from '../../helpers/data/tripData';
 
-export default function TripForm({ formTitle, setTrips }) {
+export default function TripForm({
+  formTitle, setTrips, title, startDate, endDate, firebaseKey
+}) {
   const [trip, setTrip] = useState({
-    title: '',
-    startDate: '',
-    endDate: '',
-    firebaseKey: '',
-    uid: '',
+    title: title || '',
+    startDate: startDate || '',
+    endDate: endDate || '',
+    firebaseKey: firebaseKey || null,
   });
 
   const handleInputChange = (e) => {
     setTrip((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     }));
   };
 
+  const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    createTrip(trip).then(setTrips);
+    if (trip.firebaseKey) {
+      updateTrips(trip, firebaseKey).then(setTrips);
+    } else {
+      createTrip(trip).then(setTrips);
+      history.push('trips');
+    }
   };
 
   return (
@@ -77,4 +86,9 @@ TripForm.propTypes = {
   user: PropTypes.any,
   formTitle: PropTypes.string,
   setTrips: PropTypes.func,
+  title: PropTypes.string,
+  firebaseKey: PropTypes.string,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
+  trips: PropTypes.array
 };
