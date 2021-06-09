@@ -41,7 +41,7 @@ export default function Routes({
             pressure={pressure}
          />}
         />
-        <PrivateRoute
+        <Route
           path='/trips'
           user={user}
           component={() => <TripsView
@@ -50,7 +50,7 @@ export default function Routes({
             user={user}
           />}
         />
-        <PrivateRoute
+        <Route
           path='/trips/:id'
           component={() => <SingleTripView user={user}/>}
         />

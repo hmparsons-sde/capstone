@@ -16,16 +16,6 @@ const NavBar = ({ user }) => {
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 
-  const authenticated = () => {
-    <>
-      <NavItem className="mt-3 ml-2">
-        <NavLink href="/trips">
-          <p>Trips</p>
-        </NavLink>
-      </NavItem>
-    </>;
-  };
-
   return (
     <div>
       <Navbar color="faded" light>
@@ -42,7 +32,11 @@ const NavBar = ({ user }) => {
                 <p>Search</p>
               </NavLink>
             </NavItem>
-            {user && authenticated()}
+            <NavItem className="mt-3 ml-2">
+              <NavLink href="/trips">
+                <p>Trips</p>
+              </NavLink>
+            </NavItem>
             {user !== null && (
               <div>
                 {user ? (

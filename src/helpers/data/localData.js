@@ -3,7 +3,7 @@ import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 import getPressureData from './externalData';
 
-const localDb = firebaseConfig.localDbURL;
+const localDb = firebaseConfig.dbURL;
 
 const addLocation = (locationObj) => new Promise((resolve, reject) => {
   axios.post(`${localDb}/locations.json`, locationObj)
