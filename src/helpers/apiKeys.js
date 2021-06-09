@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  localApiKey: process.env.REACT_APP_API_KEY_LOCAL,
+  localApiKey: process.env.REACT_APP_API_KEY,
   externalApiKey: process.env.REACT_APP_API_KEY_EXTERNAL,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   localDbURL: process.env.REACT_APP_DATABASE_URL_LOCAL,

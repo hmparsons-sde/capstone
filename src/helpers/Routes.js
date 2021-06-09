@@ -1,13 +1,26 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import HomeView from '../views/Home';
 import NotFound from '../views/NotFound';
 import PressureView from '../views/SearchView';
-// import SingleTripView from '../views/SingleTrip';
 import TripsView from '../views/Trips';
+import SingleTripView from '../views/SingleTrip';
+
+const PrivateRoute = ({ component: Component, user, ...rest }) => {
+  const routeChecker = (taco) => (user
+    ? (<Component {...taco} user={user} />)
+    : (<Redirect to={{ pathname: '/', state: { from: taco.location } }} />));
+  return <Route {...rest} render={(props) => routeChecker(props)} />;
+};
+
+PrivateRoute.propTypes = {
+  component: PropTypes.func,
+  user: PropTypes.any
+};
 
 export default function Routes({
+  user,
   pressure,
   setPressure,
   trips,
@@ -19,7 +32,8 @@ export default function Routes({
         <Route
           exact
           path='/'
-          component={HomeView} />
+          component={HomeView}
+        />
         <Route
           path='/search'
           component={() => <PressureView
@@ -27,15 +41,23 @@ export default function Routes({
             pressure={pressure}
          />}
         />
-        <Route
+        <PrivateRoute
           path='/trips'
+          user={user}
           component={() => <TripsView
             trips={trips}
             setTrips={setTrips}
-          />} />
+            user={user}
+          />}
+        />
+        <PrivateRoute
+          path='/trips/:id'
+          component={() => <SingleTripView user={user}/>}
+        />
         <Route
           path='*'
-          component={NotFound} />
+          component={NotFound}
+        />
       </Switch>
     </div>
   );
