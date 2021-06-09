@@ -7,13 +7,14 @@ import { useHistory } from 'react-router-dom';
 import { createTrip, updateTrips } from '../../helpers/data/tripData';
 
 export default function TripForm({
-  formTitle, setTrips, title, startDate, endDate, firebaseKey
+  formTitle, setTrips, title, startDate, endDate, firebaseKey, user
 }) {
   const [trip, setTrip] = useState({
     title: title || '',
     startDate: startDate || '',
     endDate: endDate || '',
     firebaseKey: firebaseKey || null,
+    uid: user.uid,
   });
 
   const handleInputChange = (e) => {
@@ -30,7 +31,7 @@ export default function TripForm({
     if (trip.firebaseKey) {
       updateTrips(trip, firebaseKey).then(setTrips);
     } else {
-      createTrip(trip).then(setTrips);
+      createTrip(trip, user.uid).then(setTrips);
       history.push('trips');
     }
   };
