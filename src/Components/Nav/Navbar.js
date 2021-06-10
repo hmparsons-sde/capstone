@@ -32,11 +32,13 @@ const NavBar = ({ user }) => {
                 <p>Search</p>
               </NavLink>
             </NavItem>
-            <NavItem className="mt-3 ml-2">
-              <NavLink href="/trips">
-                <p>Trips</p>
-              </NavLink>
-            </NavItem>
+            {user
+            && <NavItem className="mt-3 ml-2">
+                <NavLink href="/trips">
+                  <p>Trips</p>
+                </NavLink>
+              </NavItem>
+            }
             {user !== null && (
               <div>
                 {user ? (
