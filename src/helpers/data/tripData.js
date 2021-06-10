@@ -2,21 +2,26 @@
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
-const localDb = firebaseConfig.dbURL;
+const localDb = firebaseConfig.databaseURL;
 
-const getTrips = () => new Promise((resolve, reject) => {
-  axios.get(`${localDb}/trips.json`)
-    .then((response) => resolve(Object.values(response.data)))
-    .catch((error) => reject(error));
+const getTrips = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${localDb}/trips.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    }).catch((error) => reject(error));
 });
 
-const createTrip = (tripObject) => new Promise((resolve, reject) => {
+const createTrip = (tripObject, uid) => new Promise((resolve, reject) => {
   axios.post(`${localDb}/trips.json`, tripObject)
     .then((response) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${localDb}/trips/${response.data.name}.json`, body)
         .then(() => {
-          getTrips().then((tripsArray) => resolve(tripsArray));
+          getTrips(uid).then((tripsArray) => resolve(tripsArray));
         });
     }).catch((error) => reject(error));
 });
@@ -33,9 +38,9 @@ const updateTrips = (tripObject, firebaseKey) => new Promise((resolve, reject) =
     .catch((error) => reject(error));
 });
 
-const deleteTrip = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteTrip = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${localDb}/trips/${firebaseKey}.json`)
-    .then(() => getTrips().then((tripsArray) => resolve(tripsArray)))
+    .then(() => getTrips(uid).then((tripsArray) => resolve(tripsArray)))
     .catch((error) => reject(error));
 });
 

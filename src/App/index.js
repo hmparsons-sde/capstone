@@ -7,7 +7,7 @@ import Routes from '../helpers/Routes';
 import { getTrips } from '../helpers/data/tripData';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [trips, setTrips] = useState([]);
   const [pressure, setPressure] = useState([]);
 
@@ -20,7 +20,7 @@ function App() {
           uid: authed.uid,
           user: authed.email.split('@')[0],
         };
-        getTrips().then((tripsArray) => setTrips(tripsArray));
+        getTrips(user.uid).then((tripsArray) => setTrips(tripsArray));
         setUser(userInfoObj);
       } else if (user || user === null) {
         setUser(false);
