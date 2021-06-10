@@ -36,9 +36,11 @@ export default function Routes({
         />
         <Route
           path='/search'
+          user={user}
           component={() => <PressureView
             setPressure={setPressure}
             pressure={pressure}
+            user={user}
          />}
         />
         <Route
@@ -52,6 +54,7 @@ export default function Routes({
         />
         <Route
           path='/trips/:id'
+          user={user}
           component={() => <SingleTripView user={user}/>}
         />
         <Route

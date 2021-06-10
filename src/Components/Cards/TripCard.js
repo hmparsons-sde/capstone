@@ -73,6 +73,7 @@ const TripCard = ({
     </Card>
   );
 };
+console.warn('click');
 
 TripCard.propTypes = {
   user: PropTypes.any,

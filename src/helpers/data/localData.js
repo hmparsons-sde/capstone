@@ -3,7 +3,7 @@ import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 import getPressureData from './externalData';
 
-const localDb = firebaseConfig.dbURL;
+const localDb = firebaseConfig.databaseURL;
 
 const addLocation = (locationObj) => new Promise((resolve, reject) => {
   axios.post(`${localDb}/locations.json`, locationObj)
@@ -42,6 +42,12 @@ const updateLocation = (locationObj, firebaseKey) => new Promise((resolve, rejec
     });
 });
 
+const getTripLocation = (tripId) => new Promise((resolve, reject) => {
+  axios.get(`${localDb}/locations.json?orderBy="tripId"&equalTo="${tripId}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
 export {
-  addLocation, getLocation, deleteLocation, updateLocation
+  addLocation, getLocation, deleteLocation, updateLocation, getTripLocation
 };
