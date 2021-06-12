@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { addLocation } from '../../helpers/data/locationData';
 
-export default function PressureCard({ uid, firebaseKey, ...pressureObj }) {
+export default function SearchResultCard({ uid, firebaseKey, ...pressureObj }) {
   const history = useHistory();
   const handleAdd = (e) => {
     e.preventDefault();
@@ -51,13 +51,9 @@ export default function PressureCard({ uid, firebaseKey, ...pressureObj }) {
   );
 }
 
-PressureCard.propTypes = {
+SearchResultCard.propTypes = {
   name: PropTypes.string,
   pressure: PropTypes.number,
   uid: PropTypes.any,
   firebaseKey: PropTypes.any
 };
-
-// on Pressure card, add "add to trip" button + dropdown OR "discard" to delete reading.
-// adding to a trip is "creating" (like a pin to a board)
-// get data from API + create by adding to Firebase

@@ -5,7 +5,7 @@ import SingleTripBlock from '../Components/Cards/SingleTripBlock';
 import PublicSearchView from './SearchView';
 import { getSingleTrip } from '../helpers/data/tripData';
 // import { tripsAndLocations } from '../helpers/data/tripsLocationsData';
-import PressureCard from '../Components/Cards/PressureCard';
+import SearchResultCard from '../Components/Cards/SearchResultCard';
 import { getTripLocation } from '../helpers/data/locationData';
 
 const TripLocationContainer = styled.div`
@@ -35,7 +35,7 @@ export default function SingleTripView() {
       </SingleTripBlock>
       <TripLocationContainer>
         {tripLocations?.map((tripLocation) => (
-          <PressureCard
+          <SearchResultCard
             key={firebaseKey}
             uid={trip.uid}
             tripLocations={tripLocations}
@@ -52,7 +52,7 @@ export default function SingleTripView() {
 // import styled from 'styled-components';
 // import { getSingleTrip } from '../helpers/data/tripData';
 // // import { tripsAndLocations } from '../helpers/data/tripsLocationsData';
-// import PressureCard from '../Components/Cards/PressureCard';
+// import SearchResultCard from '../Components/Cards/SearchResultCard';
 
 // export default function SingleTripView({ user }) {
 //   // const [tripLocations, setTripLocations] = useState([]);
@@ -68,7 +68,7 @@ export default function SingleTripView() {
 //     <TripLocationContainer className="card-container align-content-center" id="single-trip">
 //       <h5>{trips.title}</h5>
 //       {trips.map((trip) => (
-//         <PressureCard
+//         <SearchResultCard
 //           key={trip.firebaseKey}
 //           tripId={id}
 //           trips={trips}

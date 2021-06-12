@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form } from 'reactstrap';
-import PressureCard from '../Components/Cards/PressureCard';
+import SearchResultCard from '../Components/Cards/SearchResultCard';
 import { getPressureData } from '../helpers/data/externalData';
 
 export default function PublicSearchView({ firebaseKey, uid }) {
@@ -53,7 +53,7 @@ export default function PublicSearchView({ firebaseKey, uid }) {
       </Form>
       <div id="card-container">
         {pressure.map((pressureObj) => (
-          <PressureCard
+          <SearchResultCard
             key={pressureObj.id}
             firebaseKey={firebaseKey}
             uid={uid}
