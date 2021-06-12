@@ -35,6 +35,7 @@ export default function Routes({
           component={HomeView}
         />
         <Route
+          exact
           path='/search'
           user={user}
           component={() => <PressureView
@@ -44,6 +45,7 @@ export default function Routes({
          />}
         />
         <Route
+          exact
           path='/trips'
           user={user}
           component={() => <TripsView
@@ -53,9 +55,10 @@ export default function Routes({
           />}
         />
         <PrivateRoute
+          exact
           path='/trips/:firebaseKey'
           user={user}
-          component={SingleTripView}
+          component={() => <SingleTripView user={user}/>}
         />
         <Route
           path='*'

@@ -6,11 +6,11 @@ import { getPressureData } from '../helpers/data/externalData';
 export default function PressureView() {
   const [pressure, setPressure] = useState([]);
   const [userInput, setUserInput] = useState('');
-
   const grabPressure = () => {
     getPressureData(userInput)
       .then((response) => {
-        setPressure({ ...response });
+        pressure.push(response);
+        setPressure([...pressure]);
       });
   };
 
