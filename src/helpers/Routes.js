@@ -52,10 +52,10 @@ export default function Routes({
             user={user}
           />}
         />
-        <Route
-          path='/trips/:id'
+        <PrivateRoute
+          path='/trips/:firebaseKey'
           user={user}
-          component={() => <SingleTripView user={user}/>}
+          component={SingleTripView}
         />
         <Route
           path='*'

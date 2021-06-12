@@ -10,8 +10,7 @@ export default function PressureView() {
   const grabPressure = () => {
     getPressureData(userInput)
       .then((response) => {
-        pressure.push(response);
-        setPressure([...pressure]);
+        setPressure({ ...response });
       });
   };
 
