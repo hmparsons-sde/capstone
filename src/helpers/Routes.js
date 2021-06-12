@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import HomeView from '../views/Home';
 import NotFound from '../views/NotFound';
-import PressureView from '../views/SearchView';
+import PublicSearchView from '../views/SearchView';
 import TripsView from '../views/Trips';
 import SingleTripView from '../views/SingleTrip';
 
@@ -37,11 +37,9 @@ export default function Routes({
         <Route
           exact
           path='/search'
-          user={user}
-          component={() => <PressureView
+          component={() => <PublicSearchView
             setPressure={setPressure}
             pressure={pressure}
-            user={user}
          />}
         />
         <Route
@@ -58,7 +56,11 @@ export default function Routes({
           exact
           path='/trips/:firebaseKey'
           user={user}
-          component={() => <SingleTripView user={user}/>}
+          component={() => <SingleTripView
+            setPressure={setPressure}
+            pressure={pressure}
+            user={user}
+            />}
         />
         <Route
           path='*'

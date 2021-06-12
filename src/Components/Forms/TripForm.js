@@ -54,7 +54,7 @@ export default function TripForm({
           <Label>Start Date:</Label>
           <Input
             name="startDate"
-            type="text"
+            type="date"
             placeholder="Start Date"
             value={trip.startDate}
             onChange={handleInputChange}
@@ -64,7 +64,7 @@ export default function TripForm({
           <Label>End Date:</Label>
           <Input
             name="endDate"
-            type="text"
+            type="date"
             placeholder="End Date"
             value={trip.endDate}
             onChange={handleInputChange}
