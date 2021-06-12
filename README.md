@@ -23,15 +23,18 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Google authentication
 - Users can create new readings.
 - Users can read the readings that they have created.
+- Readings will change color to reflect the likelihood of a headache event.
+    - Low - green color; range: 968 hPa - 998 hPa or 1011 hPa - 1013+ hPa
+    - Moderate - yellow color; range: 999 hPa - 1002 hPa or 1008 hPa - 1010 hPa
+    - High - red color; range: 1003 hPa - 1007 hPa
 - Users can update readings by changing units of measurement.
     - 1 hPa = 1 mbar
     - 1 hPa = 0.75 mmHg
 - Users can delete readings.
 - Users can assign readings to separate “Trips.”
-- Readings will change color to reflect the likelihood of a headache event.
-    - Low - green color; range: 968 hPa - 998 hPa or 1011 hPa - 1013+ hPa
-    - Moderate - yellow color; range: 999 hPa - 1002 hPa or 1008 hPa - 1010 hPa
-    - High - red color; range: 1003 hPa - 1007 hPa
+- Users can create new trips.
+- Users can update trips - start date, end date, title, and image.
+- User can delete trips.
 - App is fully responsive
 ### Scientific Source Material
 - Okuma, Hirohisa, Yumiko Okuma, and Yasuhisa Kitagawa. 2015. “Examination of Fluctuations in Atmospheric Pressure Related to Migraine.” SpringerPlus 4 (1): 790.
