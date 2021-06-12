@@ -27,6 +27,10 @@ body {
   &.purple { background-color: $highaccent; };
 }
 
+#toggler {
+  color: $accent;
+}
+
 h1,
 h2,
 h3,
