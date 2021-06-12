@@ -1,21 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import SingleTripBlock from '../Components/Cards/SingleTripBlock';
+import PublicSearchView from './SearchView';
 import { getSingleTrip } from '../helpers/data/tripData';
+// import { tripsAndLocations } from '../helpers/data/tripsLocationsData';
+import PressureCard from '../Components/Cards/PressureCard';
+import { getTripLocation } from '../helpers/data/locationData';
+
+const TripLocationContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 5%;
+`;
 
 export default function SingleTripView() {
-  const [trip, setTrip] = useState({});
+  const [tripLocations, setTripLocations] = useState([]);
+  const [trip, setTrip] = useState({
+    title: '',
+  });
   const { firebaseKey } = useParams();
 
   useEffect(() => {
     getSingleTrip(firebaseKey).then(setTrip);
+    getTripLocation(firebaseKey).then(setTripLocations);
   }, []);
 
   return (
     <div>
+      <PublicSearchView firebaseKey={firebaseKey} uid={trip.uid}></PublicSearchView>
       <SingleTripBlock trip={trip}>
         <h2>{trip.title}</h2>
       </SingleTripBlock>
+      <TripLocationContainer>
+        {tripLocations?.map((tripLocation) => (
+          <PressureCard
+            key={firebaseKey}
+            uid={trip.uid}
+            tripLocations={tripLocations}
+            {...tripLocation}
+          />
+        ))};
+      </TripLocationContainer>
     </div>
   );
 }
@@ -25,14 +52,8 @@ export default function SingleTripView() {
 // import styled from 'styled-components';
 // import { getSingleTrip } from '../helpers/data/tripData';
 // // import { tripsAndLocations } from '../helpers/data/tripsLocationsData';
-// import ShowPressure from '../Components/Cards/PressureCard';
+// import PressureCard from '../Components/Cards/PressureCard';
 
-// const TripLocationContainer = styled.div`
-//   display: flex;
-//   flex-flow: row wrap;
-//   justify-content: center;
-//   margin-top: 5%;
-// `;
 // export default function SingleTripView({ user }) {
 //   // const [tripLocations, setTripLocations] = useState([]);
 //   const [trips, setTrips] = useState({});
@@ -47,7 +68,7 @@ export default function SingleTripView() {
 //     <TripLocationContainer className="card-container align-content-center" id="single-trip">
 //       <h5>{trips.title}</h5>
 //       {trips.map((trip) => (
-//         <ShowPressure
+//         <PressureCard
 //           key={trip.firebaseKey}
 //           tripId={id}
 //           trips={trips}

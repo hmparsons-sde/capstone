@@ -1,4 +1,4 @@
-import { deleteLocation, getTripLocation } from './localData';
+import { deleteLocation, getTripLocation } from './locationData';
 import { deleteTrip, getSingleTrip } from './tripData';
 
 const deleteTripLocations = (firebaseKey, uid) => new Promise((resolve, reject) => {

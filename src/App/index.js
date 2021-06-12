@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import firebase from 'firebase';
-import NavBar from '../Components/Nav/Navbar';
-// import PressureView from '../views/SearchView';
+import NavBar from '../Components/Nav/NavBar';
 import Routes from '../helpers/Routes';
 import { getTrips } from '../helpers/data/tripData';
-import { getLocation } from '../helpers/data/localData';
+// import { getLocation } from '../helpers/data/locationData';
 
 function App() {
   const [user, setUser] = useState({});
@@ -22,7 +21,7 @@ function App() {
           user: authed.email.split('@')[0],
         };
         getTrips(authed.uid).then((tripsArray) => setTrips(tripsArray));
-        getLocation(authed.uid).then((locationsArray) => setPressure(locationsArray));
+        // getLocation(authed.uid).then((locationsArray) => setPressure(locationsArray));
         setUser(userInfoObj);
       } else if (user || user === null) {
         setUser(false);

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Form } from 'reactstrap';
-import ShowPressure from '../Components/Cards/PressureCard';
+import PressureCard from '../Components/Cards/PressureCard';
 import { getPressureData } from '../helpers/data/externalData';
 
-export default function PressureView() {
+export default function PublicSearchView({ firebaseKey, uid }) {
   const [pressure, setPressure] = useState([]);
   const [userInput, setUserInput] = useState('');
   const grabPressure = () => {
@@ -27,37 +28,44 @@ export default function PressureView() {
   return (
     <div>
       <Form
-      onSubmit={handleSubmit}
-      id="get-Pressure"
-      className="shadow p-3 rounded">
-        <div className="form-group">
-          <h2
-            id="search-title">
-              Get the Pressure
-          </h2>
-          <input
-            type="text"
-            className="form-control"
-            id="value"
-            aria-describedby="location"
-            onChange={handleUserInput}>
-          </input>
-        </div>
-      <Button
-        type="submit"
-        id="search-Pressure"
-        outline color="dark">
-          Submit
-      </Button>
+        onSubmit={handleSubmit}
+        id="get-Pressure"
+        className="shadow p-3 rounded">
+          <div className="form-group">
+            <h2
+              id="search-title">
+                Get the Pressure
+            </h2>
+            <input
+              type="text"
+              className="form-control"
+              id="value"
+              aria-describedby="location"
+              onChange={handleUserInput}>
+            </input>
+          </div>
+        <Button
+          type="submit"
+          id="search-Pressure"
+          outline color="dark">
+            Submit
+        </Button>
       </Form>
       <div id="card-container">
-      {pressure.map((pressureObj) => (
-        <ShowPressure
-        key={pressureObj.id}
-        {...pressureObj}
-        />
-      ))}
+        {pressure.map((pressureObj) => (
+          <PressureCard
+            key={pressureObj.id}
+            firebaseKey={firebaseKey}
+            uid={uid}
+            {...pressureObj}
+          />
+        ))}
       </div>
     </div>
   );
 }
+
+PublicSearchView.propTypes = {
+  firebaseKey: PropTypes.any,
+  uid: PropTypes.any
+};
