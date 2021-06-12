@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'reactstrap';
 import ShowPressure from '../Components/Cards/PressureCard';
-import getPressureData from '../helpers/data/externalData';
+import { getPressureData } from '../helpers/data/externalData';
 
 export default function PressureView() {
   const [pressure, setPressure] = useState([]);
   const [userInput, setUserInput] = useState('');
-
   const grabPressure = () => {
     getPressureData(userInput)
       .then((response) => {

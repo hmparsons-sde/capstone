@@ -5,6 +5,7 @@ import NavBar from '../Components/Nav/Navbar';
 // import PressureView from '../views/SearchView';
 import Routes from '../helpers/Routes';
 import { getTrips } from '../helpers/data/tripData';
+import { getLocation } from '../helpers/data/localData';
 
 function App() {
   const [user, setUser] = useState({});
@@ -20,7 +21,8 @@ function App() {
           uid: authed.uid,
           user: authed.email.split('@')[0],
         };
-        getTrips(user.uid).then((tripsArray) => setTrips(tripsArray));
+        getTrips(authed.uid).then((tripsArray) => setTrips(tripsArray));
+        getLocation(authed.uid).then((locationsArray) => setPressure(locationsArray));
         setUser(userInfoObj);
       } else if (user || user === null) {
         setUser(false);

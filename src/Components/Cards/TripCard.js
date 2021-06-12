@@ -16,6 +16,7 @@ const TripCard = ({
   setTrips,
 }) => {
   const [editing, setEditing] = useState(false);
+  const history = useHistory();
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
@@ -24,12 +25,13 @@ const TripCard = ({
       case 'edit':
         setEditing((prevState) => !prevState);
         break;
+      case 'view':
+        history.push(`/trips/${firebaseKey}`);
+        break;
       default:
         console.warn('nothing selected');
     }
   };
-
-  const history = useHistory();
 
   return (
     <Card key={firebaseKey} body>
@@ -37,10 +39,7 @@ const TripCard = ({
       <CardText>
         {startDate} - {endDate}
       </CardText>
-      <Button
-        color="warning"
-        onClick={() => history.push(`/trips/${firebaseKey}`)}
-      >
+      <Button color="warning" onClick={() => handleClick('view')}>
         View Trip
       </Button>
       <Button
@@ -73,6 +72,7 @@ const TripCard = ({
     </Card>
   );
 };
+console.warn('click');
 
 TripCard.propTypes = {
   user: PropTypes.any,

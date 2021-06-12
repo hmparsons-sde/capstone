@@ -35,13 +35,17 @@ export default function Routes({
           component={HomeView}
         />
         <Route
+          exact
           path='/search'
+          user={user}
           component={() => <PressureView
             setPressure={setPressure}
             pressure={pressure}
+            user={user}
          />}
         />
         <Route
+          exact
           path='/trips'
           user={user}
           component={() => <TripsView
@@ -50,8 +54,10 @@ export default function Routes({
             user={user}
           />}
         />
-        <Route
-          path='/trips/:id'
+        <PrivateRoute
+          exact
+          path='/trips/:firebaseKey'
+          user={user}
           component={() => <SingleTripView user={user}/>}
         />
         <Route
