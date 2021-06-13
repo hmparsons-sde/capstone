@@ -11,6 +11,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -25,6 +26,10 @@ body {
   &.yellow { background-color: $midrisk; };
   &.red { background-color: $highrisk; };
   &.purple { background-color: $highaccent; };
+}
+
+#toggler {
+  color: $accent;
 }
 
 h1,

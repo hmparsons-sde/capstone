@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 import { getTrips } from '../helpers/data/tripData';
 import TripCard from '../Components/Cards/TripCard';
 import TripForm from '../Components/Forms/TripForm';
@@ -22,10 +24,10 @@ const TripContainer = styled.div`
 
 export default function TripsView({ trips, setTrips, user }) {
   const [trip, setTrip] = useState([]);
-  const [showButton, setShowButton] = useState(false);
-  const handleClick = () => {
-    setShowButton((prevState) => !prevState);
-  };
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   useEffect(() => {
     getTrips(user.uid).then((resp) => setTrip(resp));
@@ -37,15 +39,14 @@ export default function TripsView({ trips, setTrips, user }) {
       <hr className="mt-3 w-50"/>
       {user
         && <CreateButton className="header mt-2">
-      { !showButton
-        ? <Button className="m-2 btn-lg justify-content-center" color='danger' onClick={handleClick}>Add Trip</Button>
-        : <div>
-          <Button className="m-2 btn-lg" color='secondary' onClick={handleClick}>Close</Button>
-            <TripForm className="justify-content-center mt-3" setTrips={setTrips} trips={trips} user={user} />
-          </div>
+        <Button className="m-2 btn-lg justify-content-center" color='danger' onClick={onOpenModal} >Add Trip</Button>
+        </CreateButton>
       }
-          </CreateButton>
-      }
+        <br />
+        <Modal open={open} onClose={onCloseModal}>
+          <TripForm className="justify-content-center mt-3" setTrips={setTrips} trips={trips} user={user} center />
+        </Modal>
+        <br />
         <TripContainer className='TripsContainer mt-2 p-1'>
           {trip.map((tripInfo) => (
             <TripCard

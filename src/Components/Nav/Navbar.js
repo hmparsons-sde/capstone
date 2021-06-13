@@ -19,7 +19,7 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar color="faded" light>
-        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+        <NavbarToggler onClick={toggleNavbar} className="mr-2" color='info' id='toggler'/>
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
             <NavItem className="mt-3 ml-1">

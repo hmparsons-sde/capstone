@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import SingleTripBlock from '../Components/Cards/SingleTripBlock';
-import PublicSearchView from './SearchView';
+import SearchResultView from './SearchView';
 import { getSingleTrip } from '../helpers/data/tripData';
 // import { tripsAndLocations } from '../helpers/data/tripsLocationsData';
-import SearchResultCard from '../Components/Cards/SearchResultCard';
-import { getTripLocation } from '../helpers/data/locationData';
+// import SearchResultCard from '../Components/Cards/SearchResultCard';
+// import { getTripLocation } from '../helpers/data/locationData';
 
-const TripLocationContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin-top: 5%;
-`;
+// const TripLocationContainer = styled.div`
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: center;
+//   margin-top: 5%;
+// `;
 
 export default function SingleTripView() {
-  const [tripLocations, setTripLocations] = useState([]);
+  // const [tripLocations, setTripLocations] = useState([]);
   const [trip, setTrip] = useState({
     title: '',
   });
@@ -24,16 +24,16 @@ export default function SingleTripView() {
 
   useEffect(() => {
     getSingleTrip(firebaseKey).then(setTrip);
-    getTripLocation(firebaseKey).then(setTripLocations);
+    // getTripLocation(firebaseKey).then(setTripLocations);
   }, []);
 
   return (
     <div>
-      <PublicSearchView firebaseKey={firebaseKey} uid={trip.uid}></PublicSearchView>
+      <SearchResultView firebaseKey={firebaseKey} uid={trip.uid}></SearchResultView>
       <SingleTripBlock trip={trip}>
         <h2>{trip.title}</h2>
       </SingleTripBlock>
-      <TripLocationContainer>
+      {/* <TripLocationContainer>
         {tripLocations?.map((tripLocation) => (
           <SearchResultCard
             key={firebaseKey}
@@ -42,7 +42,7 @@ export default function SingleTripView() {
             {...tripLocation}
           />
         ))};
-      </TripLocationContainer>
+      </TripLocationContainer> */}
     </div>
   );
 }
