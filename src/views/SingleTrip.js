@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import SingleTripBlock from '../Components/Cards/SingleTripBlock';
 import SearchResultView from './SearchView';
 import { getSingleTrip } from '../helpers/data/tripData';
@@ -15,6 +15,14 @@ import { getSingleTrip } from '../helpers/data/tripData';
 //   margin-top: 5%;
 // `;
 
+const SearchContainer = styled.div`  
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  margin-top: 15%;
+  margin-bottom: 0;
+`;
+
 export default function SingleTripView() {
   // const [tripLocations, setTripLocations] = useState([]);
   const [trip, setTrip] = useState({
@@ -28,22 +36,21 @@ export default function SingleTripView() {
   }, []);
 
   return (
-    <div>
-      <SearchResultView firebaseKey={firebaseKey} uid={trip.uid}></SearchResultView>
-      <SingleTripBlock trip={trip}>
-        <h2>{trip.title}</h2>
-      </SingleTripBlock>
-      {/* <TripLocationContainer>
-        {tripLocations?.map((tripLocation) => (
-          <SearchResultCard
-            key={firebaseKey}
-            uid={trip.uid}
-            tripLocations={tripLocations}
-            {...tripLocation}
-          />
-        ))};
-      </TripLocationContainer> */}
-    </div>
+    <SearchContainer>
+      <SearchResultView firebaseKey={firebaseKey} uid={trip.uid} className="card-container align-content-center"></SearchResultView>
+        <SingleTripBlock trip={trip}>
+        </SingleTripBlock>
+        {/* <TripLocationContainer>
+          {tripLocations?.map((tripLocation) => (
+            <SearchResultCard
+              key={firebaseKey}
+              uid={trip.uid}
+              tripLocations={tripLocations}
+              {...tripLocation}
+            />
+          ))};
+        </TripLocationContainer> */}
+      </SearchContainer>
   );
 }
 

@@ -18,7 +18,7 @@ const TripContainer = styled.div`
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 15%;
   margin-bottom: 0;
 `;
 
@@ -43,7 +43,13 @@ export default function TripsView({ trips, setTrips, user }) {
         </CreateButton>
       }
         <br />
-        <Modal open={open} onClose={onCloseModal}>
+        <Modal
+          open={open}
+          onClose={onCloseModal}
+          classNames={{
+            overlay: 'customOverlay',
+            modal: 'customModal',
+          }}>
           <TripForm className="justify-content-center mt-3" setTrips={setTrips} trips={trips} user={user} center />
         </Modal>
         <br />

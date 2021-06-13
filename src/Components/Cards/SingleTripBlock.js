@@ -1,14 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-export default function SingleTripBlock({ trip }) {
+export default function SingleTripBlock() {
   return (
     <div>
-      <h1>Trip: {trip.name }</h1>
+      <h1></h1>
     </div>
   );
 }
-
-SingleTripBlock.propTypes = {
-  trip: PropTypes.object
-};
