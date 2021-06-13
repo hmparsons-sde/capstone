@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Button } from 'reactstrap';
 import { getTrips } from '../helpers/data/tripData';
 import TripCard from '../Components/Cards/TripCard';
-import TripForm from '../Components/Forms/TripForm';
+import TripFormModal from '../Components/Forms/TripFormModal';
 
 const CreateButton = styled.div`
   display: flex;
@@ -22,10 +22,13 @@ const TripContainer = styled.div`
 
 export default function TripsView({ trips, setTrips, user }) {
   const [trip, setTrip] = useState([]);
-  const [showButton, setShowButton] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const handleClick = () => {
-    setShowButton((prevState) => !prevState);
+    setShowModal((prevState) => !prevState);
   };
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
 
   useEffect(() => {
     getTrips(user.uid).then((resp) => setTrip(resp));
@@ -37,15 +40,15 @@ export default function TripsView({ trips, setTrips, user }) {
       <hr className="mt-3 w-50"/>
       {user
         && <CreateButton className="header mt-2">
-      { !showButton
-        ? <Button className="m-2 btn-lg justify-content-center" color='danger' onClick={handleClick}>Add Trip</Button>
+      { !showModal
+        ? <Button className="m-2 btn-lg justify-content-center" color='danger' onClick={handleClick} isOpen={modal} toggle={toggle} >Add Trip</Button>
         : <div>
           <Button className="m-2 btn-lg" color='secondary' onClick={handleClick}>Close</Button>
-            <TripForm className="justify-content-center mt-3" setTrips={setTrips} trips={trips} user={user} />
           </div>
       }
           </CreateButton>
       }
+        <TripFormModal className="justify-content-center mt-3" setTrips={setTrips} trips={trips} user={user} isOpen={modal} toggle={toggle} />
         <TripContainer className='TripsContainer mt-2 p-1'>
           {trip.map((tripInfo) => (
             <TripCard
