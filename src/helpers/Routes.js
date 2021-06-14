@@ -24,7 +24,9 @@ export default function Routes({
   pressure,
   setPressure,
   trips,
-  setTrips
+  setTrips,
+  setLocations,
+  locations
 }) {
   return (
     <div>
@@ -59,6 +61,8 @@ export default function Routes({
           component={() => <SingleTripView
             setPressure={setPressure}
             pressure={pressure}
+            locations={locations}
+            setLocations={setLocations}
             user={user}
             />}
         />
@@ -76,5 +80,7 @@ Routes.propTypes = {
   pressure: PropTypes.any,
   setPressure: PropTypes.func,
   trips: PropTypes.any,
-  setTrips: PropTypes.func
+  setTrips: PropTypes.func,
+  locations: PropTypes.any,
+  setLocations: PropTypes.func,
 };

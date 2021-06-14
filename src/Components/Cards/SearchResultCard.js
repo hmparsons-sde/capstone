@@ -16,6 +16,7 @@ export default function SearchResultCard({ uid, firebaseKey, ...pressureObj }) {
     e.preventDefault();
     const locationObj = {
       cityName: pressureObj.name,
+      pressure: pressureObj.main.pressure,
       tripId: firebaseKey,
       uid
     };
