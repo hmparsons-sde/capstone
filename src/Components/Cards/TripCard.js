@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button, Card, CardText, CardTitle
+  Card, CardText, CardTitle, ButtonToolbar, CardImg
 } from 'reactstrap';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -12,8 +12,8 @@ import TripForm from '../Forms/TripForm';
 
 const TripItem = styled.div`
   width: 300px;
-  height: auto;
-  margin: 15px;
+  height: 300px;
+  margin: 5px;
   box-shadow: 50px;
 `;
 
@@ -24,6 +24,7 @@ const TripCard = ({
   startDate,
   endDate,
   setTrips,
+  imageUrl
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -49,31 +50,31 @@ const TripCard = ({
   };
 
   return (
+    <div id='tripCards'>
     <TripItem className='col-auto'>
-      <Card key={firebaseKey} body>
-        <CardTitle tag="h5">{title}</CardTitle>
-        <CardText>
-          {startDate} - {endDate}
+      <Card key={firebaseKey}>
+      <CardImg id="cardImg" src={imageUrl} width='100%' height='100%' alt="Card image cap"></CardImg>
+      <CardText className="mt-3 ml-3" tag='h5'>
+         {startDate} - {endDate}
         </CardText>
-        <Button color="warning" onClick={() => handleClick('view')}>
-          View Trip
-        </Button>
-        <Button
-          color="danger"
-          onClick={() => {
-            handleClick('delete');
-          }}
-        >
-          Delete Trip
-        </Button>
-        <Button
-          color="info"
-          onClick={() => {
-            handleClick('edit');
-          }}
-        >
-          {onOpenModal ? 'Edit Trip' : ''}
-        </Button>
+      <CardTitle tag="h1" className='ml-3 mb-1'>{title}</CardTitle>
+        <ButtonToolbar size="lg" className='float-right mb-3 ml-3'>
+          <i className="fas fa-paper-plane mt-2 mr-3" size='6x'></i>
+          <i className='far fa-eye mt-2 mr-3'
+              onClick={() => handleClick('view')}></i>
+          <i className='fas fa-trash-alt mt-2 mr-3'
+              onClick={() => {
+                handleClick('delete');
+              }}
+            ></i>
+          <i className='fas fa-pencil-alt mt-2 mr-3'
+              onClick={() => {
+                handleClick('edit');
+              }}
+            >
+              {onOpenModal ? '' : ''}
+          </i>
+        </ButtonToolbar>
         <Modal
           open={open}
           onClose={onCloseModal}
@@ -94,6 +95,7 @@ const TripCard = ({
         </Modal>
       </Card>
     </TripItem>
+    </div>
   );
 };
 console.warn('click');
@@ -105,6 +107,7 @@ TripCard.propTypes = {
   endDate: PropTypes.string,
   startDate: PropTypes.string,
   setTrips: PropTypes.func,
+  imageUrl: PropTypes.string,
 };
 
 export default TripCard;

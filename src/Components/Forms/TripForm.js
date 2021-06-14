@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { createTrip, updateTrips } from '../../helpers/data/tripData';
 
 export default function TripForm({
-  formTitle, setTrips, title, startDate, endDate, firebaseKey, user
+  formTitle, setTrips, title, startDate, endDate, firebaseKey, user, imageUrl
 }) {
   const [trip, setTrip] = useState({
     title: title || '',
@@ -15,6 +15,7 @@ export default function TripForm({
     endDate: endDate || '',
     firebaseKey: firebaseKey || null,
     uid: user.uid,
+    imageUrl: imageUrl || ''
   });
 
   const handleInputChange = (e) => {
@@ -50,6 +51,18 @@ export default function TripForm({
             onChange={handleInputChange}
           ></Input>
         </FormGroup>
+        <br></br>
+        <FormGroup>
+        <Input
+          name="imageUrl"
+          type="url"
+          placeholder="Add an image"
+          value={imageUrl}
+          onChange={handleInputChange}
+          className="mt-1"
+        ></Input>
+        </FormGroup>
+        <br></br>
         <FormGroup>
           <Label>Start Date:</Label>
           <Input
@@ -60,6 +73,7 @@ export default function TripForm({
             onChange={handleInputChange}
           ></Input>
         </FormGroup>
+        <br></br>
         <FormGroup>
           <Label>End Date:</Label>
           <Input
@@ -70,6 +84,7 @@ export default function TripForm({
             onChange={handleInputChange}
           ></Input>
         </FormGroup>
+        <br></br>
         <Button
           color="danger"
           type="submit"
@@ -91,5 +106,6 @@ TripForm.propTypes = {
   firebaseKey: PropTypes.string,
   startDate: PropTypes.string,
   endDate: PropTypes.string,
-  trips: PropTypes.array
+  trips: PropTypes.array,
+  imageUrl: PropTypes.string,
 };

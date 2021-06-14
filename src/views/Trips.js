@@ -63,6 +63,7 @@ export default function TripsView({ trips, setTrips, user }) {
               startDate={tripInfo.startDate}
               endDate={tripInfo.endDate}
               user={user}
+              imageUrl={tripInfo.imageUrl}
             />
           ))}
         </TripContainer>

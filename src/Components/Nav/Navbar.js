@@ -24,6 +24,11 @@ const NavBar = ({ user }) => {
         <NavbarToggler onClick={toggleNavbar} className="mr-2" color='info' id='toggler'/>
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
+          <NavItem className="mt-3 ml-3">
+                <NavLink href="/search">
+                  <h3>search</h3>
+                </NavLink>
+              </NavItem>
             {user
             && <NavItem className="mt-3 ml-3">
                 <NavLink href="/trips">
