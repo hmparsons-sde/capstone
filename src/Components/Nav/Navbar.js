@@ -4,6 +4,7 @@ import {
   Navbar,
   NavbarToggler,
   Nav,
+  NavbarBrand,
   NavItem,
   Button,
   NavLink,
@@ -19,23 +20,19 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar color="faded" light>
+        <NavbarBrand className='mt-3 ml-3 mb-3' href='/'><h1>pressure</h1></NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" color='info' id='toggler'/>
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
-            <NavItem className="mt-3 ml-1">
-              <NavLink href="/">
-                <p>Home</p>
-              </NavLink>
-            </NavItem>
-            <NavItem className="mt-3 ml-2">
-              <NavLink href="/search">
-                <p>Search</p>
-              </NavLink>
-            </NavItem>
+          <NavItem className="mt-3 ml-3">
+                <NavLink href="/search">
+                  <h3>search</h3>
+                </NavLink>
+              </NavItem>
             {user
-            && <NavItem className="mt-3 ml-2">
+            && <NavItem className="mt-3 ml-3">
                 <NavLink href="/trips">
-                  <p>Trips</p>
+                  <h3>trips</h3>
                 </NavLink>
               </NavItem>
             }
@@ -43,15 +40,15 @@ const NavBar = ({ user }) => {
               <div>
                 {user ? (
                   <Button
-                    className="mt-2 ml-2"
+                    className="mt-3 ml-2"
                     color="transparent"
                     onClick={signOutUser}
                   >
-                    <i className="fas fa-eject fa-2x"></i>
+                    <i className="fas fa-sign-out-alt fa-2x"></i>
                   </Button>
                 ) : (
                   <Button
-                    className="mt-2 mr-2"
+                    className="mt-3 mr-2"
                     color="transparent"
                     onClick={signInUser}
                   >

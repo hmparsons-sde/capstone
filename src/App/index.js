@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import firebase from 'firebase';
-import NavBar from '../Components/Nav/NavBar';
+import NavBar from '../Components/Nav/Navbar';
 import Routes from '../helpers/Routes';
 import { getTrips } from '../helpers/data/tripData';
 // import { getLocation } from '../helpers/data/locationData';

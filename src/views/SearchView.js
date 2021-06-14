@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Form, Input } from 'reactstrap';
+import { Button, Input } from 'reactstrap';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 import SearchResultCard from '../Components/Cards/SearchResultCard';
 import { getPressureData } from '../helpers/data/externalData';
 
 export default function SearchResultView({ firebaseKey, uid }) {
   const [pressure, setPressure] = useState([]);
   const [userInput, setUserInput] = useState('');
-  const [showButton, setShowButton] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setShowButton((prevState) => !prevState);
-  };
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   const grabPressure = () => {
     getPressureData(userInput)
@@ -37,11 +38,16 @@ export default function SearchResultView({ firebaseKey, uid }) {
 
   return (
     <div>
-      { !showButton ? <Button className="m-2 btn-lg justify-content-center" color='danger' onClick={handleClick}>Search</Button>
-        : <Form
+      { !open ? <Button className="ml-4 mb-3 btn-lg justify-content-center" color='danger' onClick={onOpenModal}>Search</Button>
+        : <Modal
           onSubmit={handleSubmit}
           id="get-Pressure"
-          className="shadow p-3 rounded">
+          open={open}
+          onClose={onCloseModal}
+          classNames={{
+            overlay: 'customOverlay',
+            modal: 'customModal',
+          }}>
             <div className="form-group">
               <h2
                 id="search-title">
@@ -49,6 +55,7 @@ export default function SearchResultView({ firebaseKey, uid }) {
               </h2>
               <Input
                 type="text"
+                placeholder="enter city name"
                 className="form-control"
                 id="value"
                 value={userInput}
@@ -59,13 +66,14 @@ export default function SearchResultView({ firebaseKey, uid }) {
           <Button
             type="submit"
             id="search-Pressure"
-            outline color="dark">
+            color="secondary"
+            className="ml-3 btn-lg">
               Submit
           </Button>
-        </Form>
+        </Modal>
       }
       <div id="card-container">
-        {pressure !== [] && <Button onClick={resetSearchResults}>Clear</Button>}
+        {pressure !== [] && <Button onClick={resetSearchResults} className="ml-4 btn-lg justify-content-center">Clear</Button>}
         {pressure.map((pressureObj) => (
           <SearchResultCard
             key={pressureObj.id}

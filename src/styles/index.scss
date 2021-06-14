@@ -19,6 +19,20 @@ body {
   line-height: 1.6;
 }
 
+img.scale-with-grid {
+  max-width: 100%;
+  height: auto;
+}
+
+.customOverlay {
+  background: $secondaccent;
+}
+.customModal {
+  background: $accent;
+  max-width: 300px;
+  width: 50%;
+}
+
 #pressureReading {
   width: 20rem;
   padding: 5%;
@@ -70,7 +84,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 1.5;
   letter-spacing: -0.05rem;
 }
@@ -79,6 +93,10 @@ h6 {
   font-size: 1.5rem;
   line-height: 1.6;
   letter-spacing: 0;
+}
+
+i {
+  height: 20px;
 }
 
 @media (min-width: 550px) {
@@ -174,7 +192,6 @@ textarea,
 select {
   height: 38px;
   padding: 6px 10px;
-  background-color: $secondaccent;
   border: 1px solid $accent;
   border-radius: 4px;
   box-shadow: none;
@@ -201,6 +218,7 @@ select {
 p,
 form {
   margin-bottom: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 hr {
