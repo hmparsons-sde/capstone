@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Input } from 'reactstrap';
+import {
+  Button, Input, Form, FormGroup
+} from 'reactstrap';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import SearchResultCard from '../Components/Cards/SearchResultCard';
@@ -30,6 +32,7 @@ export default function SearchResultView({ firebaseKey, uid }) {
     e.preventDefault();
     grabPressure();
     setUserInput('');
+    console.warn('submit works');
   };
 
   const resetSearchResults = () => {
@@ -40,7 +43,6 @@ export default function SearchResultView({ firebaseKey, uid }) {
     <div>
       { !open ? <Button className="ml-4 mb-3 btn-lg justify-content-center" color='danger' onClick={onOpenModal}>Search</Button>
         : <Modal
-          onSubmit={handleSubmit}
           id="get-Pressure"
           open={open}
           onClose={onCloseModal}
@@ -48,11 +50,13 @@ export default function SearchResultView({ firebaseKey, uid }) {
             overlay: 'customOverlay',
             modal: 'customModal',
           }}>
-            <div className="form-group">
+            <div className="form-search">
+              <Form autoComplete="off" onSubmit={handleSubmit}>
               <h2
                 id="search-title">
                   Get the Pressure
               </h2>
+              <FormGroup>
               <Input
                 type="text"
                 placeholder="enter city name"
@@ -62,14 +66,17 @@ export default function SearchResultView({ firebaseKey, uid }) {
                 aria-describedby="location"
                 onChange={handleUserInput}>
               </Input>
-            </div>
+            </FormGroup>
           <Button
             type="submit"
+            onSubmit={handleSubmit}
             id="search-Pressure"
             color="secondary"
             className="ml-3 btn-lg">
               Submit
           </Button>
+          </Form>
+          </div>
         </Modal>
       }
       <div id="card-container">
