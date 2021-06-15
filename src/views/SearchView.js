@@ -8,7 +8,7 @@ import { Modal } from 'react-responsive-modal';
 import SearchResultCard from '../Components/Cards/SearchResultCard';
 import { getPressureData } from '../helpers/data/externalData';
 
-export default function SearchResultView({ firebaseKey, uid }) {
+export default function SearchResultView({ uid }) {
   const [pressure, setPressure] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [open, setOpen] = useState(false);
@@ -84,7 +84,6 @@ export default function SearchResultView({ firebaseKey, uid }) {
         {pressure.map((pressureObj) => (
           <SearchResultCard
             key={pressureObj.id}
-            firebaseKey={firebaseKey}
             uid={uid}
             {...pressureObj}
           />

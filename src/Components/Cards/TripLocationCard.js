@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardTitle,
@@ -10,10 +10,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-// import { getPressureData } from '../../helpers/data/externalData';
-import { deleteTripLocations } from '../../helpers/data/tripsLocationsData';
 import ModifyLocationForm from '../Forms/ModifyLocationForm';
-import { getTripLocation } from '../../helpers/data/locationData';
+import { deleteLocation } from '../../helpers/data/locationData';
 
 const LocationItem = styled.div`
   width: 300px;
@@ -22,22 +20,13 @@ const LocationItem = styled.div`
   box-shadow: 50px;
 `;
 
-export default function TripLocationCard({
-  firebaseKey, tripLocation, setTripLocations, cityName, uid
-}) {
-  const [pressure, setPressure] = useState({
-    main: {
-      pressure: 0
-    }
-  });
+export default function TripLocationCard(props) {
+  const { tripLocation, setTripLocations } = props;
   const [open, setOpen] = useState(false);
+  const [editing, setEditing] = useState(false);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-
-  useEffect(() => {
-    getTripLocation(tripLocation.tripId).then((resp) => setPressure(resp));
-  }, []);
 
   const handleBgColorChange = (pressureValue) => {
     let bgColorClass = '';
@@ -59,10 +48,12 @@ export default function TripLocationCard({
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deleteTripLocations(firebaseKey, uid).then((tripsArray) => setTripLocations(tripsArray));
+        console.warn(tripLocation);
+        deleteLocation(tripLocation.firebaseKey, tripLocation.uid).then(setTripLocations);
         break;
       case 'edit':
         setOpen((prevState) => !prevState);
+        setEditing((prevState) => !prevState);
         break;
       default:
         console.warn('nothing selected');
@@ -70,7 +61,7 @@ export default function TripLocationCard({
   };
 
   return (
-    <div className={handleBgColorChange(pressure)} id="tripLocations">
+    <div className={handleBgColorChange(tripLocation.pressure)} id="tripLocations">
       <LocationItem className='col-auto'>
         <Card id="pressure-card"
           className="shadow rounded">
@@ -92,20 +83,24 @@ export default function TripLocationCard({
                 {onOpenModal ? '' : ''}
             </i>
           </ButtonToolbar>
-          <Modal
-            open={open}
-            onClose={onCloseModal}
-            classNames={{
-              overlay: 'customOverlay',
-              modal: 'customModal',
-            }}
-          >
-          <ModifyLocationForm
-            formTitle="Edit Location"
-            setTripLocations={setTripLocations}
-            firebaseKey={firebaseKey}
-            cityName={cityName}
-          />
+            <Modal
+              open={open}
+              onClose={onCloseModal}
+              classNames={{
+                overlay: 'customOverlay',
+                modal: 'customModal',
+              }}
+            >
+              {
+            editing
+            && <ModifyLocationForm
+              formTitle="Edit Location"
+              setTripLocations={setTripLocations}
+              firebaseKey={tripLocation.firebaseKey}
+              cityName={tripLocation.cityName}
+              tripId={tripLocation.tripId}
+            />
+              }
           </Modal>
         </Card>
       </LocationItem>

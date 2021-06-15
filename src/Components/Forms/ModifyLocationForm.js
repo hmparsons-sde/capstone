@@ -12,7 +12,7 @@ export default function ModifyLocationForm({
     cityName: cityName || '',
     firebaseKey: firebaseKey || null,
     uid,
-    tripId
+    tripId: tripId || ''
   });
 
   const handleInputChange = (e) => {
@@ -29,12 +29,13 @@ export default function ModifyLocationForm({
 
   return (
     <div className="trip-form-container">
-    <Form className="edit-trip-form" autoComplete="off">
+    <Form className="edit-trip-form" onSubmit={handleSubmit}>
       <h1>{formTitle}</h1>
       <FormGroup>
         <Label>city name:</Label>
         <Input
-          name="title"
+          name="cityName"
+          id="cityName"
           type="text"
           placeholder="Title"
           value={cityName}
@@ -45,7 +46,6 @@ export default function ModifyLocationForm({
         <Button
           color="danger"
           type="submit"
-          onClick={handleSubmit}
           className="mt-4"
         >
           Submit
