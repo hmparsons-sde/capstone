@@ -50,7 +50,7 @@ export default function TripsView({ trips, setTrips, user }) {
             overlay: 'customOverlay',
             modal: 'customModal',
           }}>
-          <TripForm className="justify-content-center mt-3" setTrips={setTrips} trips={trips} user={user} center />
+          <TripForm className="justify-content-center mt-3" setTrips={setTrips} trips={trips} user={user} onSubmit={onCloseModal} center />
         </Modal>
         <br />
         <TripContainer className='TripsContainer mt-2 p-1'>

@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ModifyLocationForm from '../Forms/ModifyLocationForm';
-import { deleteLocation } from '../../helpers/data/locationData';
+import { deleteLocation, updateLocation } from '../../helpers/data/locationData';
 
 const LocationItem = styled.div`
   width: 300px;
@@ -23,7 +23,7 @@ const LocationItem = styled.div`
 export default function TripLocationCard(props) {
   const { tripLocation, setTripLocations } = props;
   const [open, setOpen] = useState(false);
-  const [editing, setEditing] = useState(false);
+  // const [editing, setEditing] = useState(false);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -53,7 +53,8 @@ export default function TripLocationCard(props) {
         break;
       case 'edit':
         setOpen((prevState) => !prevState);
-        setEditing((prevState) => !prevState);
+        updateLocation(tripLocation, tripLocation.firebaseKey).then(setTripLocations);
+        // setEditing((prevState) => !prevState);
         break;
       default:
         console.warn('nothing selected');
@@ -83,7 +84,7 @@ export default function TripLocationCard(props) {
                 {onOpenModal ? '' : ''}
             </i>
           </ButtonToolbar>
-            <Modal
+           <Modal
               open={open}
               onClose={onCloseModal}
               classNames={{
@@ -91,16 +92,14 @@ export default function TripLocationCard(props) {
                 modal: 'customModal',
               }}
             >
-              {
-            editing
-            && <ModifyLocationForm
+            <ModifyLocationForm
               formTitle="Edit Location"
               setTripLocations={setTripLocations}
               firebaseKey={tripLocation.firebaseKey}
               cityName={tripLocation.cityName}
               tripId={tripLocation.tripId}
+              onSubmit={onCloseModal}
             />
-              }
           </Modal>
         </Card>
       </LocationItem>

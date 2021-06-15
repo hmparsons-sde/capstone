@@ -32,6 +32,7 @@ export default function SearchResultView({ uid }) {
     e.preventDefault();
     grabPressure();
     setUserInput('');
+    onCloseModal();
     console.warn('submit works');
   };
 

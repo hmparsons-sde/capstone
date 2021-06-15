@@ -38,15 +38,28 @@ export default function ModifyLocationForm({
           id="cityName"
           type="text"
           placeholder="Title"
-          value={cityName}
+          value={location.cityName}
           onChange={handleInputChange}
         ></Input>
+      </FormGroup>
+      <br></br>
+      <FormGroup>
+        <Input
+          type='select'
+          name='tripId'
+          id='tripId'
+          value={location.tripId}
+          onChange={handleInputChange}
+        >
+          <option value=''>Reassign</option>
+        </Input>
       </FormGroup>
       <br></br>
         <Button
           color="danger"
           type="submit"
           className="mt-4"
+          onSubmit={handleSubmit}
         >
           Submit
         </Button>
