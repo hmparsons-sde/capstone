@@ -1,4 +1,4 @@
-// import firebase from 'firebase';
+import firebase from 'firebase';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
@@ -34,7 +34,7 @@ const getSingleTrip = (firebaseKey) => new Promise((resolve, reject) => {
 
 const updateTrips = (tripObject, firebaseKey) => new Promise((resolve, reject) => {
   axios.patch(`${localDb}/trips/${firebaseKey}.json`, tripObject)
-    .then(() => getTrips()).then((tripsArray) => resolve(tripsArray))
+    .then(() => getTrips(firebase.auth().currentUser.uid)).then((tripsArray) => resolve(tripsArray))
     .catch((error) => reject(error));
 });
 

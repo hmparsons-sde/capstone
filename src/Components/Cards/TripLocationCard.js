@@ -1,36 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardTitle,
   CardText,
-  CardBody
+  CardBody,
+  ButtonToolbar
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { getPressureData } from '../../helpers/data/externalData';
-// import { useHistory } from 'react-router-dom';
-// import { addLocation } from '../../helpers/data/locationData';
+import styled from 'styled-components';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import ModifyLocationForm from '../Forms/ModifyLocationForm';
+import { deleteLocation } from '../../helpers/data/locationData';
 
-export default function TripLocationCard({ firebaseKey, tripLocation }) {
-  const [pressure, setPressure] = useState({
-    main: {
-      pressure: 0
-    }
-  });
-  // const history = useHistory();
-  // const handleAdd = (e) => {
-  //   e.preventDefault();
-  //   const locationObj = {
-  //     cityName: pressure.name,
-  //     tripId: firebaseKey,
-  //     uid
-  //   };
-  //   addLocation(locationObj).then(history.push(`/trips/${firebaseKey}`));
-  // };
+const LocationItem = styled.div`
+  width: 300px;
+  height: 300px;
+  margin: 5px;
+  box-shadow: 50px;
+`;
 
-  console.warn(firebaseKey);
-  useEffect(() => {
-    getPressureData(tripLocation.name).then((resp) => setPressure(resp));
-  }, []);
+export default function TripLocationCard(props) {
+  const { tripLocation, setTripLocations } = props;
+  const [open, setOpen] = useState(false);
+  const [editing, setEditing] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   const handleBgColorChange = (pressureValue) => {
     let bgColorClass = '';
@@ -49,35 +45,73 @@ export default function TripLocationCard({ firebaseKey, tripLocation }) {
     return bgColorClass;
   };
 
-  // const handleClick = (type) => {
-  //   switch (type) {
-  //     case 'delete':
-  //       deleteTrip(firebaseKey, user.uid).then((tripsArray) => setTrips(tripsArray));
-  //       break;
-  //     case 'edit':
-  //       setOpen((prevState) => !prevState);
-  //       break;
-  //     default:
-  //       console.warn('nothing selected');
-  //   }
-  // };
+  const handleClick = (type) => {
+    switch (type) {
+      case 'delete':
+        console.warn(tripLocation);
+        deleteLocation(tripLocation.firebaseKey, tripLocation.uid).then(setTripLocations);
+        break;
+      case 'edit':
+        setOpen((prevState) => !prevState);
+        setEditing((prevState) => !prevState);
+        break;
+      default:
+        console.warn('nothing selected');
+    }
+  };
 
   return (
-    <div className={handleBgColorChange(pressure.main.pressure)} id="pressureReading">
-      <Card id="pressure-card"
-        className="shadow rounded">
-        <CardBody>
-          <CardTitle tag="h5">{tripLocation.name}</CardTitle>
-          <CardText>{pressure.main.pressure} | hPa</CardText>
-        </CardBody>
-          <i className='fas fa-trash-alt mt-2 mr-3'></i>
-          <i className='fas fa-pencil-alt mt-2 mr-3'></i>
-      </Card>
+    <div className={handleBgColorChange(tripLocation.pressure)} id="tripLocations">
+      <LocationItem className='col-auto'>
+        <Card id="pressure-card"
+          className="shadow rounded">
+          <CardBody>
+            <CardTitle tag="h5">{tripLocation.cityName}</CardTitle>
+            <CardText>{tripLocation.pressure} | hPa</CardText>
+          </CardBody>
+          <ButtonToolbar size="lg" className='float-right mb-3 ml-3'>
+            <i className='fas fa-trash-alt mt-2 mr-3'
+                onClick={() => {
+                  handleClick('delete');
+                }}
+              ></i>
+            <i className='fas fa-pencil-alt mt-2 mr-3'
+                onClick={() => {
+                  handleClick('edit');
+                }}
+              >
+                {onOpenModal ? '' : ''}
+            </i>
+          </ButtonToolbar>
+            <Modal
+              open={open}
+              onClose={onCloseModal}
+              classNames={{
+                overlay: 'customOverlay',
+                modal: 'customModal',
+              }}
+            >
+              {
+            editing
+            && <ModifyLocationForm
+              formTitle="Edit Location"
+              setTripLocations={setTripLocations}
+              firebaseKey={tripLocation.firebaseKey}
+              cityName={tripLocation.cityName}
+              tripId={tripLocation.tripId}
+            />
+              }
+          </Modal>
+        </Card>
+      </LocationItem>
     </div>
   );
 }
 
 TripLocationCard.propTypes = {
   firebaseKey: PropTypes.any,
-  tripLocation: PropTypes.object
+  tripLocation: PropTypes.object,
+  setTripLocations: PropTypes.func,
+  cityName: PropTypes.string,
+  uid: PropTypes.any
 };

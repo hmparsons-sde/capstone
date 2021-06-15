@@ -1,21 +1,9 @@
 import firebase from 'firebase';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
-import { getPressureData } from './externalData';
+// import { getPressureData } from './externalData';
 
 const localDb = firebaseConfig.databaseURL;
-
-const addLocation = (locationObj) => new Promise((resolve, reject) => {
-  axios.post(`${localDb}/locations.json`, locationObj)
-    .then((response) => {
-      const body = { firebaseKey: response.data.name };
-      axios.patch(`${localDb}/locations/${response.data.name}.json`, body)
-        .then(() => {
-          getPressureData().then((locationArray) => resolve(locationArray));
-        });
-    })
-    .catch((error) => reject(error));
-});
 
 const getLocation = (uid) => new Promise((resolve, reject) => {
   axios.get(`${localDb}/locations.json?orderBy="uid"&equalTo="${uid}"`)
@@ -26,6 +14,18 @@ const getLocation = (uid) => new Promise((resolve, reject) => {
         resolve([]);
       }
     }).catch((error) => reject(error));
+});
+
+const addLocation = (locationObj, uid) => new Promise((resolve, reject) => {
+  axios.post(`${localDb}/locations.json`, locationObj)
+    .then((response) => {
+      const body = { firebaseKey: response.data.name };
+      axios.patch(`${localDb}/locations/${response.data.name}.json`, body)
+        .then(() => {
+          getLocation(uid).then((locationArray) => resolve(locationArray));
+        });
+    })
+    .catch((error) => reject(error));
 });
 
 const deleteLocation = (firebaseKey, uid) => new Promise((resolve, reject) => {

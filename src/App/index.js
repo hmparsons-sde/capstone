@@ -4,12 +4,14 @@ import firebase from 'firebase';
 import NavBar from '../Components/Nav/Navbar';
 import Routes from '../helpers/Routes';
 import { getTrips } from '../helpers/data/tripData';
+import { getLocation } from '../helpers/data/locationData';
 // import { getLocation } from '../helpers/data/locationData';
 
 function App() {
   const [user, setUser] = useState({});
   const [trips, setTrips] = useState([]);
   const [pressure, setPressure] = useState([]);
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -21,7 +23,7 @@ function App() {
           user: authed.email.split('@')[0],
         };
         getTrips(authed.uid).then((tripsArray) => setTrips(tripsArray));
-        // getLocation(authed.uid).then((locationsArray) => setPressure(locationsArray));
+        getLocation(authed.uid).then((locationsArray) => setLocations(locationsArray));
         setUser(userInfoObj);
       } else if (user || user === null) {
         setUser(false);
@@ -39,6 +41,8 @@ function App() {
           user={user}
           pressure={pressure}
           setPressure={setPressure}
+          locations={locations}
+          setLocations={setLocations}
         />
       </Router>
     </div>

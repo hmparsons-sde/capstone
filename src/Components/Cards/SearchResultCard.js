@@ -7,18 +7,23 @@ import {
   Button
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { addLocation } from '../../helpers/data/locationData';
 
-export default function SearchResultCard({ uid, firebaseKey, ...pressureObj }) {
+export default function SearchResultCard({
+  uid, ...pressureObj
+}) {
+  const { firebaseKey } = useParams();
   const history = useHistory();
   const handleAdd = (e) => {
     e.preventDefault();
     const locationObj = {
       cityName: pressureObj.name,
+      pressure: pressureObj.main.pressure,
       tripId: firebaseKey,
       uid
     };
+    console.warn(locationObj);
     addLocation(locationObj).then(history.push(`/trips/${firebaseKey}`));
   };
 
@@ -55,5 +60,8 @@ SearchResultCard.propTypes = {
   name: PropTypes.string,
   pressure: PropTypes.number,
   uid: PropTypes.any,
-  firebaseKey: PropTypes.any
+  firebaseKey: PropTypes.any,
+  tripId: PropTypes.string,
 };
+// DateTime, within a certain amount of time. 5-day range, if date is > 5 days ago, patch result.
+// inside call, create needed object.
