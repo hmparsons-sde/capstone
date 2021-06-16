@@ -1,5 +1,5 @@
-## Front-end Capstone [![Netlify Status](https://api.netlify.com/api/v1/badges/ce8df96d-e54b-49a6-bae4-1ba65f9950b0/deploy-status)](https://app.netlify.com/sites/hmp-pressure/deploys)
-### Project Name
+# Front-end Capstone [![Netlify Status](https://api.netlify.com/api/v1/badges/ce8df96d-e54b-49a6-bae4-1ba65f9950b0/deploy-status)](https://app.netlify.com/sites/hmp-pressure/deploys)
+## Project Name
 "pressure"
 ### Overview
 This project is the culmination of the front-end semester at Nashville Software School. It demonstrates timely command of React.js + CRUD functionality.
@@ -7,19 +7,19 @@ This project is the culmination of the front-end semester at Nashville Software 
 This app allows the user to find the barometric pressure in any submitted geography and to aggregate the data from multiple locations in a simple interface. The app will fetch location by city name or postal code. Once that reading prints to the interface, the user can continue adding readings from other locales. The user will be able to delete readings or to edit the reading. Edit functionality will include the ability to change units of measurement - from hPa to mbar or mmHg. The color of the printed readings will depend on the risk of triggering a headache event. The user can then organize readings into “trips.”
 ### Personal Motivation
 As somebody living with chronic migraines, I start my day by checking the barometric pressure, so that I can anticipate my day. Now that I am able to travel, I want a simple way to keep an eye on the pressure in multiple places. My most frequent trips entail quite a few changes in altitude and, consequently, flipping through multiple apps to anticipate when I may need extra medications or darker sunglasses.
-### Main Color Palette
+## Main Color Palette
 ![Capstone-Palette](https://user-images.githubusercontent.com/67122062/120078229-08b8cc00-c074-11eb-8363-3cd62a620cac.png)
-### Trigger Color Palette
+## Trigger Color Palette
 ![trigger-palette](https://user-images.githubusercontent.com/67122062/120373559-1d989800-c2de-11eb-9a04-78441b5e8551.png)
-### ERD
+## ERD
 https://bit.ly/3wGlNAz
-### Wireframe
+## Wireframe
 https://bit.ly/3wCW1gH
-### Deployed project
+## Deployed project
 https://hmp-pressure.netlify.app/
-### Project board
+## Project board
 https://github.com/hmparsons-sde/capstone/projects/1
-### Feature List + User Stories
+## Feature List + User Stories
 - Google authentication
 - Users can create new readings.
 - Users can read the readings that they have created.
@@ -40,13 +40,35 @@ https://github.com/hmparsons-sde/capstone/projects/1
 ### Scientific Source Material
 - Okuma, Hirohisa, Yumiko Okuma, and Yasuhisa Kitagawa. 2015. “Examination of Fluctuations in Atmospheric Pressure Related to Migraine.” SpringerPlus 4 (1): 790.
 - Link to digital article: https://bit.ly/3uKIn9M
-### Screenshots
-### Loom Video Walk-through
-### Contributors
+## Technologies
+### Languages, Frameworks + Libraries
+- Javascript ES6
+- HTML5
+- CSS
+- React.js
+- Bootstrap/Reactstrap
+### Tools + Packages
+- npm
+- Luxon
+- react-responsive-modal
+- react-router-dom
+- styled-components
+- react-multi-carousel
+- Firebase
+- axios
+- Postman
+- OpenWeatherMap API
+- Canva
+- dbdiagram
+- Netlify
+- Github
+## Screenshots
+## Loom Video Walk-through
+## Contributors
 Holly Parsons (@hmparsons-sde)
 
 Portfolio site: https://hmp-portfolio-site.netlify.app/
-### Sample Postman Data
+## Sample Postman Data
 GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
 ```{
     "coord": {
