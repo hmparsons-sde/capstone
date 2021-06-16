@@ -48,6 +48,12 @@ const getTripLocation = (tripId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleLocation = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.patch(`${localDb}/locations/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
 export {
-  addLocation, getLocation, deleteLocation, updateLocation, getTripLocation
+  addLocation, getLocation, deleteLocation, updateLocation, getTripLocation, getSingleLocation
 };

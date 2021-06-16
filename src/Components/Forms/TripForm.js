@@ -15,7 +15,7 @@ export default function TripForm({
     endDate: endDate || '',
     firebaseKey: firebaseKey || null,
     uid: user.uid,
-    imageUrl: imageUrl || ''
+    imageUrl: imageUrl || '',
   });
 
   const handleInputChange = (e) => {
@@ -57,7 +57,7 @@ export default function TripForm({
           name="imageUrl"
           type="url"
           placeholder="Add an image"
-          value={imageUrl}
+          value={trip.imageUrl}
           onChange={handleInputChange}
           className="mt-1"
         ></Input>
@@ -67,7 +67,7 @@ export default function TripForm({
           <Label>Start Date:</Label>
           <Input
             name="startDate"
-            type="date"
+            type="text"
             placeholder="Start Date"
             value={trip.startDate}
             onChange={handleInputChange}
@@ -78,7 +78,7 @@ export default function TripForm({
           <Label>End Date:</Label>
           <Input
             name="endDate"
-            type="date"
+            type="text"
             placeholder="End Date"
             value={trip.endDate}
             onChange={handleInputChange}
