@@ -22,11 +22,6 @@ const LocationItem = styled.div`
 
 export default function TripLocationCard(props) {
   const { tripLocation, setTripLocations } = props;
-  // const [open, setOpen] = useState(false);
-  // // const [editing, setEditing] = useState(false);
-
-  // const onOpenModal = () => setOpen(true);
-  // const onCloseModal = () => setOpen(false);
 
   const handleBgColorChange = (pressureValue) => {
     let bgColorClass = '';
@@ -48,16 +43,10 @@ export default function TripLocationCard(props) {
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        console.warn(tripLocation);
         deleteLocation(tripLocation.firebaseKey, tripLocation.uid)
           .then(() => getTripLocation(tripLocation.tripId))
           .then((response) => setTripLocations(response));
         break;
-      // case 'edit':
-      //   setOpen((prevState) => !prevState);
-      //   updateLocation(tripLocation, tripLocation.firebaseKey).then(setTripLocations);
-      //   // setEditing((prevState) => !prevState);
-      //   break;
       default:
         console.warn('nothing selected');
     }
@@ -77,9 +66,7 @@ export default function TripLocationCard(props) {
                 onClick={() => {
                   handleClick('delete');
                 }}
-              ></i>
-            <i className='fas fa-pencil-alt mt-2 mr-3'>
-            </i>
+            ></i>
           </ButtonToolbar>
         </Card>
       </LocationItem>

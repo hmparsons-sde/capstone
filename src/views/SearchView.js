@@ -3,18 +3,12 @@ import PropTypes from 'prop-types';
 import {
   Button, Input, Form, FormGroup
 } from 'reactstrap';
-import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
 import SearchResultCard from '../Components/Cards/SearchResultCard';
 import { getPressureData } from '../helpers/data/externalData';
 
 export default function SearchResultView({ uid, setTripLocations }) {
   const [pressure, setPressure] = useState([]);
   const [userInput, setUserInput] = useState('');
-  const [open, setOpen] = useState(false);
-
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
 
   const grabPressure = () => {
     getPressureData(userInput)
@@ -32,8 +26,6 @@ export default function SearchResultView({ uid, setTripLocations }) {
     e.preventDefault();
     grabPressure();
     setUserInput('');
-    onCloseModal();
-    console.warn('submit works');
   };
 
   const resetSearchResults = () => {
@@ -41,16 +33,7 @@ export default function SearchResultView({ uid, setTripLocations }) {
   };
 
   return (
-    <div>
-      { !open ? <Button className="ml-4 mb-3 btn-lg justify-content-center" color='danger' onClick={onOpenModal}>Search</Button>
-        : <Modal
-          id="get-Pressure"
-          open={open}
-          onClose={onCloseModal}
-          classNames={{
-            overlay: 'customOverlay',
-            modal: 'customModal',
-          }}>
+          <div>
             <div className="form-search">
               <Form autoComplete="off" onSubmit={handleSubmit}>
               <h2
@@ -78,8 +61,6 @@ export default function SearchResultView({ uid, setTripLocations }) {
           </Button>
           </Form>
           </div>
-        </Modal>
-      }
       <div id="card-container">
         {pressure !== [] && <Button onClick={resetSearchResults} className="ml-4 btn-lg justify-content-center">Clear</Button>}
         {pressure.map((pressureObj) => (
