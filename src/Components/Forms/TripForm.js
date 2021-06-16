@@ -15,7 +15,7 @@ export default function TripForm({
     endDate: endDate || '',
     firebaseKey: firebaseKey || null,
     uid: user.uid,
-    imageUrl: imageUrl || ''
+    imageUrl: imageUrl || '',
   });
 
   const handleInputChange = (e) => {

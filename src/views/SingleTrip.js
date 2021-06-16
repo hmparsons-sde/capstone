@@ -36,7 +36,7 @@ export default function SingleTripView() {
 
   return (
     <SearchContainer>
-      <SearchResultView firebaseKey={firebaseKey} uid={trip.uid} className="card-container align-content-center"></SearchResultView>
+      <SearchResultView firebaseKey={firebaseKey} uid={trip.uid} setTripLocations={setTripLocations} className="card-container align-content-center"></SearchResultView>
         <SingleTripBlock trip={trip}>
         </SingleTripBlock>
         <TripLocationContainer>

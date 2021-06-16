@@ -7,14 +7,14 @@ import {
   Button
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { useHistory, useParams } from 'react-router-dom';
-import { addLocation } from '../../helpers/data/locationData';
+import { useParams } from 'react-router-dom';
+import { addLocation, getTripLocation } from '../../helpers/data/locationData';
 
 export default function SearchResultCard({
-  uid, ...pressureObj
+  uid, setTripLocations, ...pressureObj
 }) {
   const { firebaseKey } = useParams();
-  const history = useHistory();
+
   const handleAdd = (e) => {
     e.preventDefault();
     const locationObj = {
@@ -24,7 +24,12 @@ export default function SearchResultCard({
       uid
     };
     console.warn(locationObj);
-    addLocation(locationObj).then(history.push(`/trips/${firebaseKey}`));
+    addLocation(locationObj, uid)
+      .then(() => getTripLocation(locationObj.tripId))
+      .then((response) => {
+        console.warn(response);
+        setTripLocations(response);
+      });
   };
 
   const handleBgColorChange = () => {
@@ -62,6 +67,7 @@ SearchResultCard.propTypes = {
   uid: PropTypes.any,
   firebaseKey: PropTypes.any,
   tripId: PropTypes.string,
+  setTripLocations: PropTypes.func,
 };
 // DateTime, within a certain amount of time. 5-day range, if date is > 5 days ago, patch result.
 // inside call, create needed object.

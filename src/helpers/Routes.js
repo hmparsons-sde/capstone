@@ -40,6 +40,7 @@ export default function Routes({
           exact
           path='/search'
           component={() => <SearchResultView
+            user={user}
             setPressure={setPressure}
             pressure={pressure}
          />}

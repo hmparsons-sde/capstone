@@ -7,8 +7,9 @@ import PropTypes from 'prop-types';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import { useHistory } from 'react-router-dom';
-import { deleteTrip } from '../../helpers/data/tripData';
 import TripForm from '../Forms/TripForm';
+import { deleteTripLocations } from '../../helpers/data/tripsLocationsData';
+import { getLocation } from '../../helpers/data/locationData';
 
 const TripItem = styled.div`
   width: 300px;
@@ -24,6 +25,7 @@ const TripCard = ({
   startDate,
   endDate,
   setTrips,
+  setLocations,
   imageUrl
 }) => {
   const [open, setOpen] = useState(false);
@@ -36,7 +38,10 @@ const TripCard = ({
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deleteTrip(firebaseKey, user.uid).then((tripsArray) => setTrips(tripsArray));
+        deleteTripLocations(firebaseKey, user.uid)
+          .then(setTrips)
+          .then(() => getLocation(user.uid))
+          .then(setLocations);
         break;
       case 'edit':
         setOpen((prevState) => !prevState);
@@ -98,7 +103,6 @@ const TripCard = ({
     </div>
   );
 };
-console.warn('click');
 
 TripCard.propTypes = {
   user: PropTypes.any,
@@ -107,6 +111,7 @@ TripCard.propTypes = {
   endDate: PropTypes.string,
   startDate: PropTypes.string,
   setTrips: PropTypes.func,
+  setLocations: PropTypes.func,
   imageUrl: PropTypes.string,
 };
 
