@@ -36,7 +36,6 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Users can update trips - start date, end date, title, and image.
 - User can delete trips.
 - Unauthenticated visitors can search for weather data.
-- Unauthenticated visitors are prompted to sign in/sign up if they attempt to save data.
 - App is fully responsive
 ### Scientific Source Material
 - Okuma, Hirohisa, Yumiko Okuma, and Yasuhisa Kitagawa. 2015. “Examination of Fluctuations in Atmospheric Pressure Related to Migraine.” SpringerPlus 4 (1): 790.
