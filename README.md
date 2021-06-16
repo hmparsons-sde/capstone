@@ -60,6 +60,7 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - OpenWeatherMap API
 - Canva
 - dbdiagram
+- VSCode
 - Netlify
 - Github
 ## Screenshots
