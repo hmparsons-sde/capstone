@@ -8,18 +8,19 @@ import TripLocationCard from '../Components/Cards/TripLocationCard';
 import { getTripLocation } from '../helpers/data/locationData';
 
 const TripLocationContainer = styled.div`
+  margin-left: 15%;
+  margin-top: 5%;
+  padding-left: 20px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin-top: 5%;
 `;
 
 const SearchContainer = styled.div`  
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  margin-top: 15%;
-  margin-bottom: 0;
+  margin-bottom: 5%;
 `;
 
 export default function SingleTripView() {

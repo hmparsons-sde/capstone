@@ -4,8 +4,8 @@
 @import "variables";
 
 * {
-  // background-color: $bgcolor;
-  box-sizing: border-box;
+  // box-sizing: border-box;
+  background-color: $bgcolor;
 }
 
 html {
@@ -25,17 +25,34 @@ img.scale-with-grid {
 }
 
 .customOverlay {
-  background: $secondaccent;
+  background: rgba(36, 123, 160, 0.7);
 }
 .customModal {
-  background: $accent;
-  max-width: 300px;
-  width: 50%;
+  background: #b2dbbf;
+  max-width: 500px;
+  width: 100%;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 5;
+  margin-top: 10%;
+  margin-left: 3%;
+  left: 0;
+}
+
+.search-view, .trips-view {
+  margin-left: 15%;
+  margin-top: 5%;
+  padding-left: 20px;
 }
 
 #pressureReading {
   width: 20rem;
-  padding: 5%;
+  padding: 1%;
   &.green { background-color: $lowrisk; };
   &.yellow { background-color: $midrisk; };
   &.red { background-color: $highrisk; };
@@ -53,8 +70,8 @@ h4,
 h5,
 h6 {
   font-family: "Raleway", sans-serif;
-  color: $mainfont;
   margin-top: 0;
+  color: $mainfont;
   margin-bottom: 2rem;
   font-weight: 300;
 }
@@ -191,6 +208,7 @@ input[type="text"],
 textarea,
 select {
   height: 38px;
+  width: 150px;
   padding: 6px 10px;
   border: 1px solid $accent;
   border-radius: 4px;
@@ -226,6 +244,13 @@ hr {
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid $secondaccent;
+}
+
+#card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .container:after,

@@ -56,12 +56,14 @@ export default function TripLocationCard(props) {
     <div className={handleBgColorChange(tripLocation.pressure)} id="tripLocations">
       <LocationItem className='col-auto'>
         <Card id="pressure-card"
-          className="shadow rounded">
+          className="shadow rounded"
+          body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
+          >
           <CardBody>
             <CardTitle tag="h5">{tripLocation.cityName}</CardTitle>
             <CardText>{tripLocation.pressure} | hPa</CardText>
           </CardBody>
-          <ButtonToolbar size="lg" className='float-right mb-3 ml-3'>
+          <ButtonToolbar size="lg" className='float-right mb-3 ml-3' id="button-toolbar">
             <i className='fas fa-trash-alt mt-2 mr-3'
                 onClick={() => {
                   handleClick('delete');

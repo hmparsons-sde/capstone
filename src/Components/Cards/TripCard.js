@@ -55,9 +55,9 @@ const TripCard = ({
   };
 
   return (
-    <div id='tripCards'>
+    <div>
     <TripItem className='col-auto'>
-      <Card key={firebaseKey}>
+      <Card key={firebaseKey} body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}>
       <CardImg id="cardImg" src={imageUrl} width='100%' height='100%' alt="Card image cap"></CardImg>
       <CardText className="mt-3 ml-3" tag='h5'>
          {startDate} - {endDate}
