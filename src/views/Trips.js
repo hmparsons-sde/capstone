@@ -34,7 +34,7 @@ export default function TripsView({ trips, setTrips, user }) {
   }, []);
 
   return (
-    <div>
+    <div className="trips-view">
       <h1 className="justify-content-center text-center mt-3 mb-3">Trips</h1>
       <hr className="mt-3 w-50"/>
       {user

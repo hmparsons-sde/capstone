@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Collapse,
   Navbar,
-  NavbarToggler,
   Nav,
   NavbarBrand,
   NavItem,
@@ -13,15 +12,15 @@ import PropTypes from 'prop-types';
 import { signInUser, signOutUser } from '../../helpers/auth';
 
 const NavBar = ({ user }) => {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <div>
-      <Navbar color="faded" light>
+    <div className="sidenav">
+      <Navbar color="faded" light className="nav-body">
         <NavbarBrand className='mt-3 ml-3 mb-3' href='/'><h1>pressure</h1></NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} className="mr-2" color='info' id='toggler'/>
+        <i onClick={toggleNavbar} className="fas fa-sort-alt fa-2x"/>
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
           <NavItem className="mt-3 ml-3">
@@ -41,7 +40,7 @@ const NavBar = ({ user }) => {
                 {user ? (
                   <Button
                     className="mt-3 ml-2"
-                    color="transparent"
+                    inverse
                     onClick={signOutUser}
                   >
                     <i className="fas fa-sign-out-alt fa-2x"></i>
@@ -49,7 +48,7 @@ const NavBar = ({ user }) => {
                 ) : (
                   <Button
                     className="mt-3 mr-2"
-                    color="transparent"
+                    inverse
                     onClick={signInUser}
                   >
                     <i className="fas fa-sign-in-alt fa-2x"></i>

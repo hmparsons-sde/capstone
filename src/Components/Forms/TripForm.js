@@ -39,7 +39,7 @@ export default function TripForm({
 
   return (
     <div className="trip-form-container">
-      <Form className="add-trip-form" autoComplete="off">
+      <Form className="add-trip-form" autoComplete="off" inverse>
         <h1>{formTitle}</h1>
         <FormGroup>
           <Label>Trip Title:</Label>

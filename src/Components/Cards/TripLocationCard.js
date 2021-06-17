@@ -22,11 +22,6 @@ const LocationItem = styled.div`
 
 export default function TripLocationCard(props) {
   const { tripLocation, setTripLocations } = props;
-  // const [open, setOpen] = useState(false);
-  // // const [editing, setEditing] = useState(false);
-
-  // const onOpenModal = () => setOpen(true);
-  // const onCloseModal = () => setOpen(false);
 
   const handleBgColorChange = (pressureValue) => {
     let bgColorClass = '';
@@ -48,16 +43,10 @@ export default function TripLocationCard(props) {
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        console.warn(tripLocation);
         deleteLocation(tripLocation.firebaseKey, tripLocation.uid)
           .then(() => getTripLocation(tripLocation.tripId))
           .then((response) => setTripLocations(response));
         break;
-      // case 'edit':
-      //   setOpen((prevState) => !prevState);
-      //   updateLocation(tripLocation, tripLocation.firebaseKey).then(setTripLocations);
-      //   // setEditing((prevState) => !prevState);
-      //   break;
       default:
         console.warn('nothing selected');
     }
@@ -67,19 +56,19 @@ export default function TripLocationCard(props) {
     <div className={handleBgColorChange(tripLocation.pressure)} id="tripLocations">
       <LocationItem className='col-auto'>
         <Card id="pressure-card"
-          className="shadow rounded">
+          className="shadow rounded"
+          body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
+          >
           <CardBody>
             <CardTitle tag="h5">{tripLocation.cityName}</CardTitle>
             <CardText>{tripLocation.pressure} | hPa</CardText>
           </CardBody>
-          <ButtonToolbar size="lg" className='float-right mb-3 ml-3'>
+          <ButtonToolbar size="lg" className='float-right mb-3 ml-3' id="button-toolbar">
             <i className='fas fa-trash-alt mt-2 mr-3'
                 onClick={() => {
                   handleClick('delete');
                 }}
-              ></i>
-            <i className='fas fa-pencil-alt mt-2 mr-3'>
-            </i>
+            ></i>
           </ButtonToolbar>
         </Card>
       </LocationItem>

@@ -23,11 +23,9 @@ export default function SearchResultCard({
       tripId: firebaseKey,
       uid
     };
-    console.warn(locationObj);
     addLocation(locationObj, uid)
       .then(() => getTripLocation(locationObj.tripId))
       .then((response) => {
-        console.warn(response);
         setTripLocations(response);
       });
   };
@@ -50,12 +48,17 @@ export default function SearchResultCard({
   return (
     <div className={handleBgColorChange(pressureObj.main.pressure)} id="pressureReading">
       <Card id="pressure-card"
-        className="shadow rounded">
+        className="shadow rounded"
+        body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
+        >
         <CardBody>
           <CardTitle tag="h5">{pressureObj.name}</CardTitle>
           <CardText>{pressureObj.main.pressure} | hPa</CardText>
         </CardBody>
-          <Button type='submit'color="dark" onClick={handleAdd}>Add to trip</Button>
+        {
+          uid
+          && <Button type='submit'color="dark" onClick={handleAdd}>Add to trip</Button>
+        }
       </Card>
     </div>
   );

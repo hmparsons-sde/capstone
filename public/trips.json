@@ -2,21 +2,33 @@
   "-MUuao2lynNljpuXajqR" : {
     "firebaseKey" : "-MUuao2lynNljpuXajqR",
     "uid" : "SIzayZV4hFelkUVnbj1I3GXgToO2",
-    "title" : "Bali"
+    "title" : "Bali",
+    "startDate": "August 26, 2023",
+    "endDate": "September 30, 2023",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/capstone-db-e56d8.appspot.com/o/ubud-277349_960_720.jpg?alt=media&token=7334dad7-7b25-4b62-9c60-56aa0ea49881"
   },
   "-MUuao2lynNljpuMelba" : {
     "firebaseKey" : "-MUuao2lynNljpuMelba",
     "uid" : "SIzayZV4hFelkUVnbj1I3GXgToO2",
-    "title" : "Bachelorette Party"
+    "title" : "Bachelorette Party",
+    "startDate": "August 26, 2021",
+    "endDate": "September 1, 2021",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/capstone-db-e56d8.appspot.com/o/highlands.jpg?alt=media&token=4873d2ff-b7a5-4192-a192-1bf2caf71bcf"
   },
   "-MUuao2lynNljpCormac" : {
     "firebaseKey" : "-MUuao2lynNljpCormac",
     "uid" : "SIzayZV4hFelkUVnbj1I3GXgToO2",
-    "title" : "In-laws"
+    "title" : "In-laws",
+    "startDate": "October 2, 2021",
+    "endDate": "October 6, 2021",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/capstone-db-e56d8.appspot.com/o/covington.jpg?alt=media&token=3fb8bc2c-8517-4d4f-9f24-ad80e463bcc1"
   },
   "-MUuao2lynNljpuXaJack" : {
     "firebaseKey" : "-MUuao2lynNljpuXaJack",
     "uid" : "SIzayZV4hFelkUVnbj1I3GXgToO2",
-    "title" : "Outerbanks"
+    "title" : "Outerbanks",
+    "startDate": "December 28, 2021",
+    "endDate": "January 6, 2022",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/capstone-db-e56d8.appspot.com/o/obx.jpg?alt=media&token=4f128e72-7797-42b6-bbc0-66b4e4e809bc"
   }
 }
