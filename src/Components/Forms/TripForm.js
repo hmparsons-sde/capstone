@@ -39,49 +39,52 @@ export default function TripForm({
 
   return (
     <div className="trip-form-container">
-      <Form className="add-trip-form" autoComplete="off" inverse>
+      <Form className="add-trip-form bg-white" autoComplete="off" inverse>
         <h1>{formTitle}</h1>
-        <FormGroup>
-          <Label>Trip Title:</Label>
+        <FormGroup className="bg-white">
+          <Label className="bg-white">Trip Title:</Label>
           <Input
             name="title"
             type="text"
+            className="bg-white"
             placeholder="Title"
             value={trip.title}
             onChange={handleInputChange}
           ></Input>
         </FormGroup>
         <br></br>
-        <FormGroup>
+        <FormGroup className="bg-white">
         <Input
           name="imageUrl"
           type="url"
           placeholder="Add an image"
           value={trip.imageUrl}
           onChange={handleInputChange}
-          className="mt-1"
+          className="bg-white mt-1"
         ></Input>
         </FormGroup>
         <br></br>
-        <FormGroup>
-          <Label>Start Date:</Label>
+        <FormGroup className="bg-white">
+          <Label className="bg-white">Start Date:</Label>
           <Input
             name="startDate"
             type="text"
             placeholder="Start Date"
             value={trip.startDate}
             onChange={handleInputChange}
+            className="bg-white"
           ></Input>
         </FormGroup>
         <br></br>
-        <FormGroup>
-          <Label>End Date:</Label>
+        <FormGroup className="bg-white">
+          <Label className="bg-white">End Date:</Label>
           <Input
             name="endDate"
             type="text"
             placeholder="End Date"
             value={trip.endDate}
             onChange={handleInputChange}
+            className="bg-white"
           ></Input>
         </FormGroup>
         <br></br>
@@ -89,7 +92,7 @@ export default function TripForm({
           color="danger"
           type="submit"
           onClick={handleSubmit}
-          className="mt-4"
+          className="mt-4 bg-white"
         >
           Submit
         </Button>

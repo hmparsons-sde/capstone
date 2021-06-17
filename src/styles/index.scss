@@ -25,17 +25,17 @@ img.scale-with-grid {
 }
 
 .customOverlay {
-  background: rgba(36, 123, 160, 0.7);
+  background: rgba(36, 123, 160, 0.7) !important;
 }
 .customModal {
-  background: #b2dbbf;
+  background: #b2dbbf !important;
   max-width: 500px;
   width: 100%;
 }
 
 .sidenav {
   height: 100%;
-  width: 200px;
+  width: auto;
   position: fixed;
   z-index: 1;
   top: 5;
