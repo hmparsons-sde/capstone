@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button, Form, FormGroup, Label, Input
+  Button, Form, FormGroup, Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -38,15 +38,14 @@ export default function TripForm({
   };
 
   return (
-    <div className="trip-form-container">
-      <Form className="add-trip-form bg-white" autoComplete="off" inverse>
+    <div className="trip-form-container d-grid gap-2">
+      <Form className="add-trip-form bg-white text-center w-100" autoComplete="off" inverse>
         <h1>{formTitle}</h1>
-        <FormGroup className="bg-white">
-          <Label className="bg-white">Trip Title:</Label>
+        <FormGroup className="bg-white start-25 mt-3">
           <Input
             name="title"
             type="text"
-            className="bg-white"
+            className="bg-white w-75 ml-5 mt-3"
             placeholder="Title"
             value={trip.title}
             onChange={handleInputChange}
@@ -60,39 +59,37 @@ export default function TripForm({
           placeholder="Add an image"
           value={trip.imageUrl}
           onChange={handleInputChange}
-          className="bg-white mt-1"
+          className="bg-white mt-1 w-75 ml-5"
         ></Input>
         </FormGroup>
         <br></br>
         <FormGroup className="bg-white">
-          <Label className="bg-white">Start Date:</Label>
           <Input
             name="startDate"
             type="text"
             placeholder="Start Date"
             value={trip.startDate}
             onChange={handleInputChange}
-            className="bg-white"
+            className="bg-white w-75 ml-5"
           ></Input>
         </FormGroup>
         <br></br>
         <FormGroup className="bg-white">
-          <Label className="bg-white">End Date:</Label>
           <Input
             name="endDate"
             type="text"
             placeholder="End Date"
             value={trip.endDate}
             onChange={handleInputChange}
-            className="bg-white"
+            className="bg-white w-75 ml-5"
           ></Input>
         </FormGroup>
         <br></br>
         <Button
-          color="danger"
+          color="secondary"
           type="submit"
           onClick={handleSubmit}
-          className="mt-4 bg-white"
+          className="mt-3 btn-lg"
         >
           Submit
         </Button>

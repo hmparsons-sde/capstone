@@ -39,19 +39,19 @@ const NavBar = ({ user }) => {
               <div>
                 {user ? (
                   <Button
-                    className="mt-3 ml-2"
-                    inverse
+                    className="mt-3 ml-2 btn-lg"
+                    color='secondary'
                     onClick={signOutUser}
                   >
-                    <i className="fas fa-sign-out-alt fa-2x"></i>
+                    signout
                   </Button>
                 ) : (
                   <Button
-                    className="mt-3 mr-2"
-                    inverse
+                    className="mt-3 mr-2 btn-lg"
+                    color='info'
                     onClick={signInUser}
                   >
-                    <i className="fas fa-sign-in-alt fa-2x"></i>
+                    signin
                   </Button>
                 )}
               </div>
