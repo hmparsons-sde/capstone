@@ -12,8 +12,8 @@ import { deleteTripLocations } from '../../helpers/data/tripsLocationsData';
 import { getLocation } from '../../helpers/data/locationData';
 
 const TripItem = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: auto;
   margin: 5px;
   box-shadow: 50px;
 `;
@@ -57,13 +57,8 @@ const TripCard = ({
   return (
     <div>
     <TripItem className='col-auto'>
-      <Card key={firebaseKey} body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}>
-      <CardImg id="cardImg" src={imageUrl} width='100%' height='100%' alt="Card image cap"></CardImg>
-      <CardText className="mt-3 ml-3" tag='h5'>
-         {startDate} - {endDate}
-        </CardText>
-      <CardTitle tag="h1" className='ml-3 mb-1'>{title}</CardTitle>
-        <ButtonToolbar size="lg" className='float-right mb-3 ml-3'>
+      <Card key={firebaseKey} inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}>
+      <ButtonToolbar size="lg" className='float-right mb-3 ml-3'>
           <i className="fas fa-paper-plane mt-2 mr-3" size='6x'></i>
           <i className='far fa-eye mt-2 mr-3'
               onClick={() => handleClick('view')}></i>
@@ -80,6 +75,11 @@ const TripCard = ({
               {onOpenModal ? '' : ''}
           </i>
         </ButtonToolbar>
+      <CardImg id="cardImg" src={imageUrl} width='100%' height='100%' alt="Card image cap"></CardImg>
+      <CardText className="mt-3 ml-3" tag='h5'>
+         {startDate} - {endDate}
+        </CardText>
+      <CardTitle tag="h1" className='ml-3 mb-1'>{title}</CardTitle>
         <Modal
           open={open}
           onClose={onCloseModal}

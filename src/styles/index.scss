@@ -4,20 +4,14 @@
 @import "variables";
 
 * {
-  // box-sizing: border-box;
+  box-sizing: border-box;
   background-color: $bgcolor;
 }
 
 html {
-  // font-size: 62.5%;
   scroll-behavior: smooth;
   height: 100%;
 }
-
-// body {
-//   font-size: 1.5em;
-//   line-height: 1.6;
-// }
 
 img.scale-with-grid {
   max-width: 100%;
@@ -36,18 +30,29 @@ img.scale-with-grid {
 .sidenav {
   height: 100%;
   width: auto;
-  position: fixed;
+  float: left;
   z-index: 1;
-  top: 1;
-  // margin-top: 10%;
+  top: 0;
   margin-left: 3%;
   left: 0;
 }
 
-.search-view, .trips-view {
+.search-view {
   margin-left: 25%;
-  margin-top: 15%;
+  margin-top: 7%;
   padding-left: 20px;
+  text-align: center;
+}
+
+.trips-view {
+  margin-left: 20%;
+  padding: 10px;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.search-bar {
+  align-self: center;
 }
 
 #pressureReading {
@@ -140,7 +145,7 @@ h6 {
 p {
   font-family: "Lato", sans-serif;
   color: $secondfont;
-  margin-top: 0;
+//   margin-top: 0;
 }
 
 img {
@@ -212,8 +217,6 @@ select {
   padding: 6px 10px;
   border: 1px solid $accent;
   border-radius: 4px;
-  box-shadow: none;
-  box-sizing: border-box;
 }
 
 textarea {

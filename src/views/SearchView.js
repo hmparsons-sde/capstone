@@ -40,14 +40,13 @@ export default function SearchResultView({ uid, setTripLocations }) {
 
   return (
     <div className="search-view">
-      <div className="form-search">
+      <div className="search-bar">
         <Form autoComplete="off" onSubmit={handleSubmit}>
-          <h1 id="search-title">Get the Pressure</h1>
           <FormGroup>
             <Input
               type="text"
               placeholder="enter city name"
-              className="form-control w-25"
+              className="form-control flex-grow-2 rounded rounded-pill border-0 bg-light w-50"
               id="value"
               value={userInput}
               aria-describedby="location"
@@ -72,7 +71,6 @@ export default function SearchResultView({ uid, setTripLocations }) {
           </ButtonToolbar>
         </Form>
       </div>
-      <br></br>
       <br></br>
       <SearchContainer id="card-container">
         {pressure.map((pressureObj) => (
