@@ -69,6 +69,8 @@ export default function TripLocationCard(props) {
                   handleClick('delete');
                 }}
             ></i>
+            <i className='far fa-eye mt-2 mr-3'
+            ></i>
           </ButtonToolbar>
         </Card>
       </LocationItem>

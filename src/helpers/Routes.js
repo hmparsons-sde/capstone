@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import HomeView from '../views/Home';
 import NotFound from '../views/NotFound';
-import SearchResultView from '../views/SearchView';
+// import SearchResultView from '../views/SearchView';
 import TripsView from '../views/Trips';
 import SingleTripView from '../views/SingleTrip';
 
@@ -36,7 +36,7 @@ export default function Routes({
           path='/'
           component={HomeView}
         />
-        <Route
+        {/* <Route
           exact
           path='/search'
           component={() => <SearchResultView
@@ -44,7 +44,7 @@ export default function Routes({
             setPressure={setPressure}
             pressure={pressure}
          />}
-        />
+        /> */}
         <Route
           exact
           path='/trips'

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import landingpage from '../assets/landingpage.png';
+import header from '../assets/header.png';
 import '../styles/Home.scss';
 
 const LandingImage = styled.div`
@@ -8,13 +8,15 @@ const LandingImage = styled.div`
   position: flex;
   object-fit: cover;
   display: block;
+  width: 80%;
+  margin-top: 10%;
 `;
 
 export default function HomeView() {
   return (
     <div>
       <LandingImage>
-        <img src={landingpage}></img>
+        <img src={header}></img>
       </LandingImage>
     </div>
   );

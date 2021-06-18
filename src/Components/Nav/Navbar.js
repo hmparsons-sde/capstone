@@ -9,6 +9,7 @@ import {
   NavLink,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+import brains from '../../assets/brains.png';
 import { signInUser, signOutUser } from '../../helpers/auth';
 
 const NavBar = ({ user }) => {
@@ -17,41 +18,49 @@ const NavBar = ({ user }) => {
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <div className="sidenav">
+    <div className="sidenav col-auto">
+      <img src={brains} className="mr-3"></img>
       <Navbar color="faded" light className="nav-body">
-        <NavbarBrand className='mt-3 ml-3 mb-3' href='/'><h1>pressure</h1></NavbarBrand>
+        <NavbarBrand className='mt-3 ml-2 mb-3' href='/'><h1>pressure.<br></br>app</h1></NavbarBrand>
         <i onClick={toggleNavbar} className="fas fa-sort-alt fa-2x"/>
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
-          <NavItem className="mt-3 ml-3">
-                <NavLink href="/search">
-                  <h3>search</h3>
-                </NavLink>
-              </NavItem>
-            {user
-            && <NavItem className="mt-3 ml-3">
+            <NavItem className="mt-3 ml-2">
+              <NavLink href="/">
+                <h3>explore</h3>
+              </NavLink>
+            </NavItem>
+          {!user
+            && <NavItem className="mt-3 ml-2">
+              <NavLink href="/search">
+                <h3>forecast</h3>
+              </NavLink>
+            </NavItem>
+          }
+          {user
+            && <NavItem className="mt-1 ml-2">
                 <NavLink href="/trips">
-                  <h3>trips</h3>
+                  <h3>my trips</h3>
                 </NavLink>
               </NavItem>
-            }
+          }
             {user !== null && (
               <div>
                 {user ? (
                   <Button
-                    className="mt-3 ml-2"
-                    inverse
+                    className="mt-3 ml-2 btn-md"
+                    color='secondary'
                     onClick={signOutUser}
                   >
-                    <i className="fas fa-sign-out-alt fa-2x"></i>
+                    sign out
                   </Button>
                 ) : (
                   <Button
-                    className="mt-3 mr-2"
-                    inverse
+                    className="mt-3 m1-2 btn-md"
+                    color='secondary'
                     onClick={signInUser}
                   >
-                    <i className="fas fa-sign-in-alt fa-2x"></i>
+                    sign in
                   </Button>
                 )}
               </div>
