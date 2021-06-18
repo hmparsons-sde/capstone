@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  Button, Input, Form, FormGroup, ButtonToolbar
-} from 'reactstrap';
+import { Form, Input } from 'reactstrap';
 import SearchResultCard from '../Components/Cards/SearchResultCard';
 import { getPressureData } from '../helpers/data/externalData';
 
@@ -39,36 +37,31 @@ export default function SearchResultView({ uid, setTripLocations }) {
   };
 
   return (
-    <div className="search-view">
+    <div>
       <div className="search-bar">
-        <Form autoComplete="off" onSubmit={handleSubmit}>
-          <FormGroup>
+        <Form onSubmit={handleSubmit} className="w-100 flex container p-1 mb-2 bg-light rounded rounded-pill shadow-sm input-group mt-5">
             <Input
               type="text"
               placeholder="enter city name"
-              className="form-control flex-grow-2 rounded rounded-pill border-0 bg-light w-50"
+              className="form-control flex-grow-2 rounded rounded-pill border-0 bg-light w-50 ml-3"
               id="value"
               value={userInput}
               aria-describedby="location"
               onChange={handleUserInput}
             ></Input>
-          </FormGroup>
-          <ButtonToolbar>
-            <Button
+            <button
               type="submit"
               onSubmit={handleSubmit}
               id="search-Pressure"
-              color="secondary"
-              className="ml-3 btn-lg"
+              className="ml-3"
             >
-              Submit
-            </Button>
+              <i className="fas fa-search fa-2x"></i>
+            </button>
             {pressure !== [] && (
-              <Button onClick={resetSearchResults} className="ml-3 btn-lg">
-                Clear
-              </Button>
+              <button onClick={resetSearchResults} className="mr-3 ml-3">
+                <i className="fas fa-times fa-2x"></i>
+              </button>
             )}
-          </ButtonToolbar>
         </Form>
       </div>
       <br></br>
@@ -82,7 +75,7 @@ export default function SearchResultView({ uid, setTripLocations }) {
           />
         ))}
       </SearchContainer>
-    </div>
+      </div>
   );
 }
 

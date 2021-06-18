@@ -35,6 +35,8 @@ img.scale-with-grid {
   top: 0;
   margin-left: 3%;
   left: 0;
+  background: transparent;
+  overflow-x: hidden;
 }
 
 .search-view {
@@ -53,6 +55,7 @@ img.scale-with-grid {
 
 .search-bar {
   align-self: center;
+  margin-top: 5%;
 }
 
 #pressureReading {
@@ -79,6 +82,11 @@ h6 {
   color: $mainfont;
   margin-bottom: 2rem;
   font-weight: 300;
+}
+
+.fas {
+  color: $accent;
+  background-color: white;
 }
 
 // h1 {
@@ -228,6 +236,9 @@ textarea {
 button,
 .button {
   margin-bottom: 1rem;
+  padding: 5px;
+  border: none;
+  background: none;
 }
 
 input,
@@ -261,4 +272,10 @@ hr {
   content: "";
   display: table;
   clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+     width: 100%;
+  }
 }
