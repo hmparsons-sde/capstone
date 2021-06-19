@@ -18,32 +18,30 @@ const NavBar = ({ user }) => {
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <div className="sidenav col-auto">
+    <div className="sidenav">
       <img src={brains} className="mr-3"></img>
-      <Navbar color="faded" light className="nav-body">
+      <Navbar color="faded" light className="nav-body" sticky>
         <NavbarBrand className='mt-3 ml-2 mb-3' href='/'><h1>pressure.<br></br>app</h1></NavbarBrand>
         <i onClick={toggleNavbar} className="fas fa-sort-alt fa-2x"/>
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
-            <NavItem className="mt-3 ml-2">
-              <NavLink href="/explore">
-                <h3>explore</h3>
-              </NavLink>
-            </NavItem>
-          {!user
-            && <NavItem className="mt-3 ml-2">
-              <NavLink href="/forecast">
-                <h3>forecast</h3>
-              </NavLink>
-            </NavItem>
-          }
           {user
             && <NavItem className="mt-1 ml-2">
                 <NavLink href="/trips">
                   <h3>my trips</h3>
                 </NavLink>
               </NavItem>
-          }
+            }
+            <NavItem className="mt-3 ml-2">
+              <NavLink href="/forecast">
+                <h3>forecast</h3>
+              </NavLink>
+            </NavItem>
+            <NavItem className="mt-3 ml-2">
+              <NavLink href="/explore">
+                <h3>explore</h3>
+              </NavLink>
+            </NavItem>
             {user !== null && (
               <div>
                 {user ? (

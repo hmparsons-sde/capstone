@@ -24,23 +24,6 @@ export default function TripLocationCard(props) {
   const history = useHistory();
   const { firebaseKey } = useParams();
 
-  const handleBgColorChange = (pressureValue) => {
-    let bgColorClass = '';
-    if (pressureValue >= 968 && pressureValue <= 998) {
-      bgColorClass = 'green';
-    } else if (pressureValue >= 999 && pressureValue <= 1002) {
-      bgColorClass = 'yellow';
-    } else if (pressureValue >= 1002 && pressureValue <= 1007) {
-      bgColorClass = 'red';
-    } else if (pressureValue > 1008) {
-      bgColorClass = 'purple';
-    } else {
-      bgColorClass = 'white';
-    }
-
-    return bgColorClass;
-  };
-
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
@@ -49,7 +32,7 @@ export default function TripLocationCard(props) {
           .then((response) => setTripLocations(response));
         break;
       case 'view':
-        history.push(`/trips/${firebaseKey}/singletrip`);
+        history.push(`/trips/${firebaseKey}/${tripLocation.cityName}`);
         break;
       default:
         console.warn('nothing selected');
@@ -57,7 +40,7 @@ export default function TripLocationCard(props) {
   };
 
   return (
-    <div className={handleBgColorChange(tripLocation.pressureValue)} id="tripLocations">
+    <div id="tripLocations">
       <LocationItem className='col-auto'>
         <Card id="pressure-card"
           className="shadow rounded"
@@ -76,6 +59,8 @@ export default function TripLocationCard(props) {
             ></i>
             <i className='far fa-eye mt-2 mr-3'
               onClick={() => handleClick('view')}
+            ></i>
+            <i className='fa fa-dumpster-fire mt-2 mr-3'
             ></i>
           </ButtonToolbar>
         </Card>

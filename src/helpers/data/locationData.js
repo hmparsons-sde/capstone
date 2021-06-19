@@ -1,7 +1,6 @@
 import firebase from 'firebase';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
-// import { getPressureData } from './externalData';
 
 const localDb = firebaseConfig.databaseURL;
 

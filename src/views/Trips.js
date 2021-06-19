@@ -45,10 +45,9 @@ export default function TripsView({ trips, setTrips, user }) {
 
   return (
     <div className="trips-view">
-      <hr className="mt-3 w-50"/>
       {user
         && <CreateButton className="header mt-2">
-          <Button className="m-2 btn-lg justify-content-center" color='secondary' onClick={onOpenModal} >Add Trip</Button>
+          <Button className="m-2 btn-lg justify-content-center" color='secondary' onClick={onOpenModal} >add trip</Button>
         </CreateButton>
       }
         <br />
