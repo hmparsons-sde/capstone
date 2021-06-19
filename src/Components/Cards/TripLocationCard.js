@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Card,
   CardTitle,
@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import 'react-responsive-modal/styles.css';
 import { useHistory, useParams } from 'react-router-dom';
 import { deleteLocation, getTripLocation } from '../../helpers/data/locationData';
-import { getForecastData } from '../../helpers/data/externalData';
 
 const LocationItem = styled.div`
   width: 300px;
@@ -24,8 +23,6 @@ export default function TripLocationCard(props) {
   const { tripLocation, setTripLocations } = props;
   const history = useHistory();
   const { firebaseKey } = useParams();
-  const [forecast, setForecast] = useState([]);
-  const [userInput, setUserInput] = useState('');
 
   const handleBgColorChange = (pressureValue) => {
     let bgColorClass = '';
@@ -44,13 +41,6 @@ export default function TripLocationCard(props) {
     return bgColorClass;
   };
 
-  const grabForecast = () => {
-    getForecastData(userInput).then((response) => {
-      forecast.push(response);
-      setForecast([...forecast]);
-    });
-  };
-
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
@@ -60,8 +50,6 @@ export default function TripLocationCard(props) {
         break;
       case 'view':
         history.push(`/trips/${firebaseKey}/singletrip`);
-        grabForecast(tripLocation.cityName);
-        setUserInput('');
         break;
       default:
         console.warn('nothing selected');

@@ -70,3 +70,14 @@ export default function SingleForecastView() {
     </div>
   );
 }
+
+// const grabForecast = () => {
+//   getForecastData(cityName).then((response) => {
+//     forecast.push(response);
+//     setForecast([...forecast]);
+//   });
+// };
+
+// useEffect(() => {
+//   grabForecast(cityName.userInput).then((response) => setForecast(response));
+// }, []);

@@ -27,7 +27,8 @@ export default function Routes({
   trips,
   setTrips,
   setLocations,
-  locations
+  locations,
+  cityName
 }) {
   return (
     <div>
@@ -68,6 +69,7 @@ export default function Routes({
           exact
           path='/trips/:firebaseKey/singletrip'
           user={user}
+          cityName={cityName}
           component={SingleForecastView}
         />
         <Route
@@ -87,4 +89,5 @@ Routes.propTypes = {
   setTrips: PropTypes.func,
   locations: PropTypes.any,
   setLocations: PropTypes.func,
+  cityName: PropTypes.string
 };

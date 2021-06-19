@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardHeader, CardImg, CardText, Row
+  Card, CardText, CardImg, Row
 } from 'reactstrap';
 
 export default function ForecastCard({ ...forecastObj }) {
-  const date = new Date(forecastObj.list.dt * 1000);
-  const weekDay = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  const dateDay = weekDay[date.getDay()];
-  console.warn(forecastObj.list[1].main.pressure);
+  // const date = new Date(forecastObj.list.dt * 1000);
+  // const weekDay = [
+  //   'Sunday',
+  //   'Monday',
+  //   'Tuesday',
+  //   'Wednesday',
+  //   'Thursday',
+  //   'Friday',
+  //   'Saturday',
+  // ];
+  // const dateDay = weekDay[date.getDay()];
+  console.warn(forecastObj.list[1]);
 
   // forecastObj.list.map((forecastForMoment)) => {<div>forecastForMoment.main.pressure</div>})
 
@@ -26,7 +26,7 @@ export default function ForecastCard({ ...forecastObj }) {
         <Card className="shadow rounded col-auto m-3"
           body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
           >
-          <CardHeader className="week__day">{dateDay}</CardHeader>
+          <CardText tag="h4" className="week__day">{forecastObj.list[0].dt_txt}</CardText>
           <CardImg src={forecastObj.list[0].weather.icon} alt="" />
           <CardText className="temperature__range">{forecastObj.list[0].main.temp}°</CardText>
             <br></br>
@@ -37,7 +37,7 @@ export default function ForecastCard({ ...forecastObj }) {
           <Card className="shadow rounded m-3"
             body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
             >
-            <CardHeader className="week__day">{dateDay}</CardHeader>
+            <CardText tag="h4" className="week__day">{forecastObj.list[1].dt_txt}</CardText>
             <CardImg src={forecastObj.list[1].weather.icon} alt="" />
             <CardText className="temperature__range">{forecastObj.list[1].main.temp}°</CardText>
               <br></br>
@@ -48,7 +48,7 @@ export default function ForecastCard({ ...forecastObj }) {
           <Card className="shadow rounded m-3"
             body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
             >
-            <CardHeader className="week__day">{dateDay}</CardHeader>
+            <CardText tag="h4" className="week__day">{forecastObj.list[2].dt_txt}</CardText>
             <CardImg src={forecastObj.list[2].weather.icon} alt="" />
             <CardText className="temperature__range">{forecastObj.list[2].main.temp}°</CardText>
               <br></br>
@@ -61,7 +61,7 @@ export default function ForecastCard({ ...forecastObj }) {
           <Card className="shadow rounded m-3"
             body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
             >
-            <CardHeader className="week__day">{dateDay}</CardHeader>
+            <CardText tag="h4" className="week__day">{forecastObj.list[3].dt_txt}</CardText>
             <CardImg src={forecastObj.list[3].weather.icon} alt="" />
             <CardText className="temperature__range">{forecastObj.list[3].main.temp}°</CardText>
               <br></br>
@@ -72,7 +72,7 @@ export default function ForecastCard({ ...forecastObj }) {
           <Card className="shadow rounded m-3"
             body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
             >
-            <CardHeader className="week__day">{dateDay}</CardHeader>
+            <CardText tag="h4" className="week__day">{forecastObj.list[0].dt_txt}</CardText>
             <CardImg src={forecastObj.list[4].weather.icon} alt="" />
             <CardText className="temperature__range">{forecastObj.list[4].main.temp}°</CardText>
               <br></br>

@@ -9,7 +9,7 @@ const getPressureData = (userInput) => new Promise((resolve, reject) => {
 });
 
 const getForecastData = (userInput) => new Promise((resolve, reject) => {
-  axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${userInput}&appid=${apiKey}`)
+  axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${userInput}&appid=${apiKey}&units=imperial`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
