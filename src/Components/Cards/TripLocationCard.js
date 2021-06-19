@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardTitle,
@@ -9,9 +9,9 @@ import {
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import 'react-responsive-modal/styles.css';
-// import { Modal } from 'react-responsive-modal';
-// import ModifyLocationForm from '../Forms/ModifyLocationForm';
+import { useHistory, useParams } from 'react-router-dom';
 import { deleteLocation, getTripLocation } from '../../helpers/data/locationData';
+import { getForecastData } from '../../helpers/data/externalData';
 
 const LocationItem = styled.div`
   width: 300px;
@@ -22,6 +22,10 @@ const LocationItem = styled.div`
 
 export default function TripLocationCard(props) {
   const { tripLocation, setTripLocations } = props;
+  const history = useHistory();
+  const { firebaseKey } = useParams();
+  const [forecast, setForecast] = useState([]);
+  const [userInput, setUserInput] = useState('');
 
   const handleBgColorChange = (pressureValue) => {
     let bgColorClass = '';
@@ -40,6 +44,13 @@ export default function TripLocationCard(props) {
     return bgColorClass;
   };
 
+  const grabForecast = () => {
+    getForecastData(userInput).then((response) => {
+      forecast.push(response);
+      setForecast([...forecast]);
+    });
+  };
+
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
@@ -47,17 +58,23 @@ export default function TripLocationCard(props) {
           .then(() => getTripLocation(tripLocation.tripId))
           .then((response) => setTripLocations(response));
         break;
+      case 'view':
+        history.push(`/trips/${firebaseKey}/singletrip`);
+        grabForecast(tripLocation.cityName);
+        setUserInput('');
+        break;
       default:
         console.warn('nothing selected');
     }
   };
 
   return (
-    <div className={handleBgColorChange(tripLocation.pressure)} id="tripLocations">
+    <div className={handleBgColorChange(tripLocation.pressureValue)} id="tripLocations">
       <LocationItem className='col-auto'>
         <Card id="pressure-card"
           className="shadow rounded"
           body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
+          key={firebaseKey}
           >
           <CardBody>
             <CardTitle tag="h5">{tripLocation.cityName}</CardTitle>
@@ -70,6 +87,7 @@ export default function TripLocationCard(props) {
                 }}
             ></i>
             <i className='far fa-eye mt-2 mr-3'
+              onClick={() => handleClick('view')}
             ></i>
           </ButtonToolbar>
         </Card>
