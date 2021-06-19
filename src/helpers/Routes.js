@@ -3,10 +3,10 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import HomeView from '../views/Home';
 import NotFound from '../views/NotFound';
-// import SearchResultView from '../views/SearchView';
 import TripsView from '../views/Trips';
 import SingleTripView from '../views/SingleTrip';
 import ForecastView from '../views/ForecastView';
+import SingleForecastView from '../views/SingleForecastView';
 
 const PrivateRoute = ({ component: Component, user, ...rest }) => {
   const routeChecker = (taco) => (user
@@ -42,15 +42,6 @@ export default function Routes({
           path='/forecast'
           component={ForecastView}
         />
-        {/* <Route
-          exact
-          path='/search'
-          component={() => <SearchResultView
-            user={user}
-            setPressure={setPressure}
-            pressure={pressure}
-         />}
-        /> */}
         <Route
           exact
           path='/trips'
@@ -72,6 +63,12 @@ export default function Routes({
             setLocations={setLocations}
             user={user}
             />}
+        />
+        <PrivateRoute
+          exact
+          path='/trips/:firebaseKey/singletrip'
+          user={user}
+          component={SingleForecastView}
         />
         <Route
           path='*'

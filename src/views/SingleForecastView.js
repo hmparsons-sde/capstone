@@ -4,14 +4,14 @@ import { Form, Input } from 'reactstrap';
 import ForecastCard from '../Components/Cards/ForecastCard';
 import { getForecastData } from '../helpers/data/externalData';
 
-const ForecastContainer = styled.div`
+const SingleForecastContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   margin-top: 5%;
 `;
 
-export default function ForecastView() {
+export default function SingleForecastView() {
   const [forecast, setForecast] = useState([]);
   const [userInput, setUserInput] = useState('');
 
@@ -59,14 +59,14 @@ export default function ForecastView() {
         </Form>
       </div>
       <br></br>
-      <ForecastContainer className='w-100'>
+      <SingleForecastContainer className='w-100'>
       {forecast.map((forecastObj) => (
       <ForecastCard
         key={forecastObj.id}
         {...forecastObj}
         />
       ))}
-      </ForecastContainer>
+      </SingleForecastContainer>
     </div>
   );
 }

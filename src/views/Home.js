@@ -10,7 +10,7 @@ const LandingImage = styled.div`
   display: block;
   width: 80%;
   margin-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 25%;
 `;
 
 export default function HomeView() {
