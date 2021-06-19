@@ -18,9 +18,9 @@ const NavBar = ({ user }) => {
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <div className="sidenav col-auto">
+    <div className="sidenav">
       <img src={brains} className="mr-3"></img>
-      <Navbar color="faded" light className="nav-body">
+      <Navbar color="faded" light className="nav-body" sticky>
         <NavbarBrand className='mt-3 ml-2 mb-3' href='/'><h1>pressure.<br></br>app</h1></NavbarBrand>
         <i onClick={toggleNavbar} className="fas fa-sort-alt fa-2x"/>
         <Collapse isOpen={!collapsed} navbar>

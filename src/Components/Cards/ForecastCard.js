@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardText, CardImg, Row
+  Card, CardText, CardImg, CardColumns
 } from 'reactstrap';
 
 export default function ForecastCard({ ...forecast }) {
   return (
-    <div>
-      <Row className='w-100'>
-        <Card className="shadow rounded col-auto m-3"
+    <div id='forecastCards'>
+      <CardColumns className='w-75 mt-5'>
+        <Card className="shadow rounded m-3"
           body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
           >
           <CardText tag="h4" className="week__day">{forecast.list[0].dt_txt}</CardText>
@@ -41,8 +41,6 @@ export default function ForecastCard({ ...forecast }) {
             <br></br>
             <CardText className="weather__description">{forecast.list[16].main.humidity}% humidity</CardText>
           </Card>
-        </Row>
-        <Row className='w-100'>
           <Card className="shadow rounded m-3"
             body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
             >
@@ -65,7 +63,7 @@ export default function ForecastCard({ ...forecast }) {
             <br></br>
             <CardText className="weather__description">{forecast.list[32].main.humidity}% humidity</CardText>
           </Card>
-        </Row>
+        </CardColumns>
      </div>
   );
 }

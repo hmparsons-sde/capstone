@@ -5,10 +5,8 @@ import ForecastCard from '../Components/Cards/ForecastCard';
 import { getForecastData } from '../helpers/data/externalData';
 
 const ForecastContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin-top: 5%;
+  margin-left: 32%;
+  margin-bottom: 90%;
 `;
 
 export default function ForecastView() {
@@ -58,8 +56,7 @@ export default function ForecastView() {
           </button>
         </Form>
       </div>
-      <br></br>
-      <ForecastContainer className='w-100'>
+      <ForecastContainer className="container-fluid">
       {forecast.map((forecastObj) => (
       <ForecastCard
         key={forecastObj.id}
