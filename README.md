@@ -27,9 +27,6 @@ https://github.com/hmparsons-sde/capstone/projects/1
     - Low - green color; range: 968 hPa - 998 hPa or 1011 hPa - 1013+ hPa
     - Moderate - yellow color; range: 999 hPa - 1002 hPa or 1008 hPa - 1010 hPa
     - High - red color; range: 1003 hPa - 1007 hPa
-- Users can update readings by changing units of measurement.
-    - 1 hPa = 1 mbar
-    - 1 hPa = 0.75 mmHg
 - Users can delete readings.
 - Users can assign readings to separate “Trips.”
 - Users can create new trips.
