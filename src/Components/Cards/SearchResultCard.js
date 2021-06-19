@@ -15,7 +15,7 @@ export default function SearchResultCard({
 }) {
   const { firebaseKey } = useParams();
 
-  const handleAdd = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const locationObj = {
       cityName: pressureObj.name,
@@ -57,7 +57,7 @@ export default function SearchResultCard({
         </CardBody>
         {
           uid
-          && <Button type='submit'color="dark" onClick={handleAdd}>Add to trip</Button>
+          && <Button type='submit'color="dark" onSubmit={handleSubmit} >Add to trip</Button>
         }
       </Card>
     </div>
@@ -72,5 +72,3 @@ SearchResultCard.propTypes = {
   tripId: PropTypes.string,
   setTripLocations: PropTypes.func,
 };
-// DateTime, within a certain amount of time. 5-day range, if date is > 5 days ago, patch result.
-// inside call, create needed object.
