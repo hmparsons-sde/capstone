@@ -9,12 +9,13 @@ const LandingImage = styled.div`
   object-fit: cover;
   display: block;
   width: 80%;
-  margin-top: 10%;
+  margin-top: 5%;
+  margin-bottom: 10%;
 `;
 
 export default function HomeView() {
   return (
-    <div>
+    <div className='mb-5'>
       <LandingImage>
         <img src={header}></img>
       </LandingImage>

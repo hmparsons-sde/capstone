@@ -6,6 +6,7 @@ import NotFound from '../views/NotFound';
 // import SearchResultView from '../views/SearchView';
 import TripsView from '../views/Trips';
 import SingleTripView from '../views/SingleTrip';
+import ForecastView from '../views/ForecastView';
 
 const PrivateRoute = ({ component: Component, user, ...rest }) => {
   const routeChecker = (taco) => (user
@@ -35,6 +36,11 @@ export default function Routes({
           exact
           path='/'
           component={HomeView}
+        />
+        <Route
+          exact
+          path='/forecast'
+          component={ForecastView}
         />
         {/* <Route
           exact

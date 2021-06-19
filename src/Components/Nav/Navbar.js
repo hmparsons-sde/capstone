@@ -26,13 +26,13 @@ const NavBar = ({ user }) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
             <NavItem className="mt-3 ml-2">
-              <NavLink href="/">
+              <NavLink href="/explore">
                 <h3>explore</h3>
               </NavLink>
             </NavItem>
           {!user
             && <NavItem className="mt-3 ml-2">
-              <NavLink href="/search">
+              <NavLink href="/forecast">
                 <h3>forecast</h3>
               </NavLink>
             </NavItem>
@@ -56,7 +56,7 @@ const NavBar = ({ user }) => {
                   </Button>
                 ) : (
                   <Button
-                    className="mt-3 m1-2 btn-md"
+                    className="mt-3 m1-2 mr-3 btn-md"
                     color='secondary'
                     onClick={signInUser}
                   >

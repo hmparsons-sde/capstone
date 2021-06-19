@@ -11,7 +11,10 @@ const SearchContainer = styled.div`
   justify-content: center;
   margin-top: 5%;
 `;
-export default function SearchResultView({ uid, setTripLocations }) {
+export default function SearchResultView({
+  uid,
+  setTripLocations
+}) {
   const [pressure, setPressure] = useState([]);
   const [userInput, setUserInput] = useState('');
 
@@ -39,29 +42,32 @@ export default function SearchResultView({ uid, setTripLocations }) {
   return (
     <div>
       <div className="search-bar">
-        <Form onSubmit={handleSubmit} className="w-100 flex container p-1 mb-2 bg-light rounded rounded-pill shadow-sm input-group mt-5">
-            <Input
-              type="text"
-              placeholder="enter city name"
-              className="form-control flex-grow-2 rounded rounded-pill border-0 bg-light w-50 ml-3"
-              id="value"
-              value={userInput}
-              aria-describedby="location"
-              onChange={handleUserInput}
-            ></Input>
-            <button
-              type="submit"
-              onSubmit={handleSubmit}
-              id="search-Pressure"
-              className="ml-3"
-            >
-              <i className="fas fa-search fa-2x"></i>
+        <Form
+          onSubmit={handleSubmit}
+          className="w-100 flex container p-1 mb-2 bg-light rounded rounded-pill shadow-sm input-group mt-5"
+        >
+          <Input
+            type="text"
+            placeholder="enter city name"
+            className="form-control flex-grow-2 rounded rounded-pill border-0 bg-light w-50 ml-3"
+            id="value"
+            value={userInput}
+            aria-describedby="location"
+            onChange={handleUserInput}
+          ></Input>
+          <button
+            type="submit"
+            onSubmit={handleSubmit}
+            id="search-Pressure"
+            className="ml-3"
+          >
+            <i className="fas fa-search fa-2x"></i>
+          </button>
+          {pressure !== [] && (
+            <button onClick={resetSearchResults} className="mr-3 ml-3">
+              <i className="fas fa-times fa-2x"></i>
             </button>
-            {pressure !== [] && (
-              <button onClick={resetSearchResults} className="mr-3 ml-3">
-                <i className="fas fa-times fa-2x"></i>
-              </button>
-            )}
+          )}
         </Form>
       </div>
       <br></br>
@@ -75,7 +81,7 @@ export default function SearchResultView({ uid, setTripLocations }) {
           />
         ))}
       </SearchContainer>
-      </div>
+    </div>
   );
 }
 
@@ -83,4 +89,5 @@ SearchResultView.propTypes = {
   firebaseKey: PropTypes.any,
   uid: PropTypes.any,
   setTripLocations: PropTypes.func,
+  changeUnit: PropTypes.any,
 };

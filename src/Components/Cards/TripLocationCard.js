@@ -9,8 +9,6 @@ import {
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import 'react-responsive-modal/styles.css';
-// import { Modal } from 'react-responsive-modal';
-// import ModifyLocationForm from '../Forms/ModifyLocationForm';
 import { deleteLocation, getTripLocation } from '../../helpers/data/locationData';
 
 const LocationItem = styled.div`
@@ -53,7 +51,7 @@ export default function TripLocationCard(props) {
   };
 
   return (
-    <div className={handleBgColorChange(tripLocation.pressure)} id="tripLocations">
+    <div className={handleBgColorChange(tripLocation.pressureValue)} id="tripLocations">
       <LocationItem className='col-auto'>
         <Card id="pressure-card"
           className="shadow rounded"
