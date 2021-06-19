@@ -15,13 +15,6 @@ const TripLocationContainer = styled.div`
   justify-content: center;
 `;
 
-// const SearchContainer = styled.div`
-//   display: flex;
-//   flex-flow: wrap;
-//   justify-content: center;
-//   margin-bottom: 5%;
-// `;
-
 export default function SingleTripView() {
   const [tripLocations, setTripLocations] = useState([]);
   const [trip, setTrip] = useState({
@@ -43,6 +36,7 @@ export default function SingleTripView() {
               key={tripLocation.firebaseKey}
               tripLocation={tripLocation}
               setTripLocations={setTripLocations}
+              trigger={tripLocation.trigger}
             />
           ))};
         </TripLocationContainer>

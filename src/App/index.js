@@ -5,8 +5,6 @@ import NavBar from '../Components/Nav/Navbar';
 import Routes from '../helpers/Routes';
 import { getTrips } from '../helpers/data/tripData';
 import { getLocation } from '../helpers/data/locationData';
-// import Header from '../Components/Nav/Header';
-// import { getLocation } from '../helpers/data/locationData';
 
 function App() {
   const [user, setUser] = useState({});
@@ -34,7 +32,6 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <Header /> */}
       <Router>
         <NavBar user={user} setTrips={setTrips} />
         <Routes

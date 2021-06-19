@@ -25,25 +25,23 @@ const NavBar = ({ user }) => {
         <i onClick={toggleNavbar} className="fas fa-sort-alt fa-2x"/>
         <Collapse isOpen={!collapsed} navbar>
           <Nav className="align-content-center" navbar>
-            <NavItem className="mt-3 ml-2">
-              <NavLink href="/explore">
-                <h3>explore</h3>
-              </NavLink>
-            </NavItem>
-          {!user
-            && <NavItem className="mt-3 ml-2">
-              <NavLink href="/forecast">
-                <h3>forecast</h3>
-              </NavLink>
-            </NavItem>
-          }
           {user
             && <NavItem className="mt-1 ml-2">
                 <NavLink href="/trips">
                   <h3>my trips</h3>
                 </NavLink>
               </NavItem>
-          }
+            }
+            <NavItem className="mt-3 ml-2">
+              <NavLink href="/forecast">
+                <h3>forecast</h3>
+              </NavLink>
+            </NavItem>
+            <NavItem className="mt-3 ml-2">
+              <NavLink href="/explore">
+                <h3>explore</h3>
+              </NavLink>
+            </NavItem>
             {user !== null && (
               <div>
                 {user ? (

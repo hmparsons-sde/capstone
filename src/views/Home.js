@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import header from '../assets/header.png';
-import '../styles/Home.scss';
 
 const LandingImage = styled.div`
   float: right;

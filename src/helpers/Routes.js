@@ -67,7 +67,7 @@ export default function Routes({
         />
         <PrivateRoute
           exact
-          path='/trips/:firebaseKey/singletrip'
+          path='/trips/:firebaseKey/:cityName'
           user={user}
           cityName={cityName}
           component={SingleForecastView}

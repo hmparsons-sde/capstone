@@ -57,7 +57,7 @@ export default function SearchResultCard({
         </CardBody>
         {
           uid
-          && <Button type='submit'color="dark" onSubmit={handleSubmit} >Add to trip</Button>
+          && <Button type='submit'color="dark" onClick={handleSubmit}>add to trip</Button>
         }
       </Card>
     </div>
