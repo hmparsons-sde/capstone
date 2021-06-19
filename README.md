@@ -4,7 +4,7 @@
 ### Overview
 This project is the culmination of the front-end semester at Nashville Software School. It demonstrates timely command of React.js + CRUD functionality.
 
-This app allows the user to find the barometric pressure in any submitted geography and to aggregate the data from multiple locations in a simple interface. The app will fetch location by city name or postal code. Once that reading prints to the interface, the user can continue adding readings from other locales. The user will be able to delete readings or to edit the reading. Edit functionality will include the ability to change units of measurement - from hPa to mbar or mmHg. The color of the printed readings will depend on the risk of triggering a headache event. The user can then organize readings into “trips.”
+This app allows the user to find the barometric pressure in any submitted geography and to aggregate the data from multiple locations in a simple interface. The user can then organize readings into “trips.”
 ### Personal Motivation
 As somebody living with chronic migraines, I start my day by checking the barometric pressure, so that I can anticipate my day. Now that I am able to travel, I want a simple way to keep an eye on the pressure in multiple places. My most frequent trips entail quite a few changes in altitude and, consequently, flipping through multiple apps to anticipate when I may need extra medications or darker sunglasses.
 ## Main Color Palette
@@ -35,7 +35,12 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Users can create new trips.
 - Users can update trips - start date, end date, title, and image.
 - User can delete trips.
+- User can view readings saved to single trips (saved external API responses to firebase database).
+- User can view single location within a single trip via nested dynamic routes.
+- On page load, the user will see the 5-day forecast for the selected trip location.
+- User can change the units of measurement (Celsius, Fahrenheit, or Standard) for forecast data via toggle.
 - Unauthenticated visitors can search for weather data.
+- Unauthenticated visitors can view the 5-day forecast for a searched city.
 - App is fully responsive
 ### Scientific Source Material
 - Okuma, Hirohisa, Yumiko Okuma, and Yasuhisa Kitagawa. 2015. “Examination of Fluctuations in Atmospheric Pressure Related to Migraine.” SpringerPlus 4 (1): 790.
@@ -53,7 +58,6 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - react-responsive-modal
 - react-router-dom
 - styled-components
-- react-multi-carousel
 - Firebase
 - axios
 - Postman
