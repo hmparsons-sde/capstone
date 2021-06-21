@@ -1,6 +1,8 @@
 # Front-end Capstone [![Netlify Status](https://api.netlify.com/api/v1/badges/ce8df96d-e54b-49a6-bae4-1ba65f9950b0/deploy-status)](https://app.netlify.com/sites/hmp-pressure/deploys)
 ## Project Name
 "pressure"
+## Deployed project
+https://hmp-pressure.netlify.app/
 ### Overview
 This project is the culmination of the front-end semester at Nashville Software School. It demonstrates timely command of React.js + CRUD functionality.
 
@@ -15,8 +17,6 @@ As somebody living with chronic migraines, I start my day by checking the barome
 https://bit.ly/3wGlNAz
 ## Wireframe
 https://bit.ly/3wCW1gH
-## Deployed project
-https://hmp-pressure.netlify.app/
 ## Project board
 https://github.com/hmparsons-sde/capstone/projects/1
 ## Feature List + User Stories
@@ -65,6 +65,8 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Netlify
 - Github
 ## Screenshots
+![pressure](https://user-images.githubusercontent.com/67122062/122800893-1800f300-d289-11eb-9f09-b7ab3bfab4a0.png)
+![forecast page](https://user-images.githubusercontent.com/67122062/122800912-1c2d1080-d289-11eb-91d2-efc9551996e9.png)
 ## Loom Video Walk-through
 ## Contributors
 Holly Parsons (@hmparsons-sde)
