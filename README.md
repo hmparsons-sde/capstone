@@ -72,7 +72,7 @@ Holly Parsons (@hmparsons-sde)
 Portfolio site: https://portfolio-hp.netlify.app/
 ## Sample Postman Data
 GET api.openweathermap.org/data/2.5/forecast?zip=37415,us&appid={API_key}
-``{
+```{
     "cod": "200",
     "message": 0,
     "cnt": 40,
@@ -118,10 +118,10 @@ GET api.openweathermap.org/data/2.5/forecast?zip=37415,us&appid={API_key}
         },
         
    ...39 further readings (5 days, 3 hour increments)...
-  }``
+  }```
 
 GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
-``{
+```{
     "coord": {
         "lon": -85.2802,
         "lat": 35.1273
@@ -164,4 +164,4 @@ GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
     "id": 0,
     "name": "Chattanooga",
     "cod": 200
-}
+}```
