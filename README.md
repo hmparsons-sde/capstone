@@ -69,10 +69,59 @@ https://github.com/hmparsons-sde/capstone/projects/1
 ## Contributors
 Holly Parsons (@hmparsons-sde)
 
-Portfolio site: https://hmp-portfolio-site.netlify.app/
+Portfolio site: https://portfolio-hp.netlify.app/
 ## Sample Postman Data
+GET api.openweathermap.org/data/2.5/forecast?zip=37415,us&appid={API_key}
+{
+    "cod": "200",
+    "message": 0,
+    "cnt": 40,
+    "list": [
+        {
+            "dt": 1624298400,
+            "main": {
+                "temp": 302.9,
+                "feels_like": 306.5,
+                "temp_min": 302.02,
+                "temp_max": 302.9,
+                "pressure": 1012,
+                "sea_level": 1012,
+                "grnd_level": 981,
+                "humidity": 65,
+                "temp_kf": 0.88
+            },
+            "weather": [
+                {
+                    "id": 500,
+                    "main": "Rain",
+                    "description": "light rain",
+                    "icon": "10d"
+                }
+            ],
+            "clouds": {
+                "all": 75
+            },
+            "wind": {
+                "speed": 4.91,
+                "deg": 234,
+                "gust": 7.72
+            },
+            "visibility": 10000,
+            "pop": 0.84,
+            "rain": {
+                "3h": 1.31
+            },
+            "sys": {
+                "pod": "d"
+            },
+            "dt_txt": "2021-06-21 18:00:00"
+        },
+        
+   ...39 further readings (5 days, 3 hour increments)...
+  }
+
 GET api.openweathermap.org/data/2.5/weather?zip=37415,us&appid={API_key}
-```{
+{
     "coord": {
         "lon": -85.2802,
         "lat": 35.1273
