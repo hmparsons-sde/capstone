@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 import { addLocation, getTripLocation } from '../../helpers/data/locationData';
 
 export default function SearchResultCard({
-  uid, setTripLocations, ...pressureObj
+  uid, setTripLocations, resetSearchResults, ...pressureObj
 }) {
   const { firebaseKey } = useParams();
 
@@ -27,6 +27,7 @@ export default function SearchResultCard({
       .then(() => getTripLocation(locationObj.tripId))
       .then((response) => {
         setTripLocations(response);
+        resetSearchResults();
       });
   };
 
@@ -71,4 +72,5 @@ SearchResultCard.propTypes = {
   firebaseKey: PropTypes.any,
   tripId: PropTypes.string,
   setTripLocations: PropTypes.func,
+  resetSearchResults: PropTypes.func,
 };
