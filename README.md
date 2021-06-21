@@ -34,7 +34,7 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - User can delete trips.
 - User can view readings saved to single trips (saved external API responses to firebase database).
 - User can view single location within a single trip via nested dynamic routes.
-- On page load, the user will see the 5-day forecast for the selected trip location.
+- User can see the 5-day forecast for the selected trip location.
 - User can change the units of measurement (Celsius, Fahrenheit, or Standard) for forecast data via toggle.
 - Unauthenticated visitors can search for weather data.
 - Unauthenticated visitors can view the 5-day forecast for a searched city.
