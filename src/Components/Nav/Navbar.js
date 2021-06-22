@@ -37,11 +37,6 @@ const NavBar = ({ user }) => {
                 <h3>forecast</h3>
               </NavLink>
             </NavItem>
-            <NavItem className="mt-3 ml-2">
-              <NavLink href="/explore">
-                <h3>explore</h3>
-              </NavLink>
-            </NavItem>
             {user !== null && (
               <div>
                 {user ? (

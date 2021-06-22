@@ -77,6 +77,7 @@ export default function SearchResultView({
             key={pressureObj.id}
             uid={uid}
             setTripLocations={setTripLocations}
+            resetSearchResults={resetSearchResults}
             {...pressureObj}
           />
         ))}
