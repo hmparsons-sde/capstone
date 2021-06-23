@@ -6,7 +6,7 @@ import {
 
 export default function ForecastCard({ ...forecast }) {
   return (
-    <div id='forecastCards'>
+    <div>
       <CardColumns className='w-75 mt-5'>
         <Card className="shadow rounded m-3"
           body inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}
