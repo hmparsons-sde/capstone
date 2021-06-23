@@ -5,8 +5,8 @@ import ForecastCard from '../Components/Cards/ForecastCard';
 import { getForecastData } from '../helpers/data/externalData';
 
 const ForecastContainer = styled.div`
-  margin-left: 32%;
-  margin-bottom: 90%;
+  margin-left: 30%;
+  margin-bottom: auto;
 `;
 
 export default function ForecastView() {
@@ -35,7 +35,7 @@ export default function ForecastView() {
       <div className="search-bar">
         <Form
           onSubmit={handleSubmit}
-          className="w-100 flex container p-2 bg-light rounded rounded-pill shadow-sm input-group mt-5"
+          className="w-80 flex container p-2 bg-light rounded rounded-pill shadow-sm input-group mt-5"
         >
           <Input
             type="text"
