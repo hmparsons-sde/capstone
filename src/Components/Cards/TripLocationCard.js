@@ -2,9 +2,9 @@ import React from 'react';
 import {
   Card,
   CardTitle,
-  CardText,
   CardBody,
-  ButtonToolbar
+  ButtonToolbar,
+  CardDeck
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -41,6 +41,7 @@ export default function TripLocationCard(props) {
 
   return (
     <div id="tripLocations">
+      <CardDeck>
       <LocationItem className='col-auto'>
         <Card id="pressure-card"
           className="shadow rounded"
@@ -48,23 +49,21 @@ export default function TripLocationCard(props) {
           key={firebaseKey}
           >
           <CardBody>
-            <CardTitle tag="h5">{tripLocation.cityName}</CardTitle>
-            <CardText>{tripLocation.pressure} | hPa</CardText>
+            <CardTitle tag="h3" className="text-center mb-3">{tripLocation.cityName}</CardTitle>
           </CardBody>
-          <ButtonToolbar size="lg" className='float-right mb-3 ml-3' id="button-toolbar">
-            <i className='fas fa-trash-alt mt-2 mr-3'
+          <ButtonToolbar size="lg" className='justify-content-center mb-3 ml-2' id="button-toolbar">
+            <i className='far fa-trash-alt fa-lg mt-2 mr-3'
                 onClick={() => {
                   handleClick('delete');
                 }}
             ></i>
-            <i className='far fa-eye mt-2 mr-3'
+            <i className='far fa-eye fa-lg mt-2 mr-3'
               onClick={() => handleClick('view')}
-            ></i>
-            <i className='fa fa-dumpster-fire mt-2 mr-3'
             ></i>
           </ButtonToolbar>
         </Card>
       </LocationItem>
+      </CardDeck>
     </div>
   );
 }
