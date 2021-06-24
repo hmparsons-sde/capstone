@@ -65,7 +65,7 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Github
 ## Screenshots
 ![pressure](https://user-images.githubusercontent.com/67122062/122800893-1800f300-d289-11eb-9f09-b7ab3bfab4a0.png)
-![forecast page](https://user-images.githubusercontent.com/67122062/122800912-1c2d1080-d289-11eb-91d2-efc9551996e9.png)
+![forecastPage](https://user-images.githubusercontent.com/67122062/123338554-a8039e80-d50e-11eb-9521-0a0f6d918c34.png)
 ## Loom Video Walk-through
 ## Contributors
 Holly Parsons (@hmparsons-sde)
