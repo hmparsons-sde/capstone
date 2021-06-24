@@ -50,7 +50,7 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Bootstrap/Reactstrap
 ### Tools + Packages
 - npm
-- Luxon
+- Moment.js
 - react-responsive-modal
 - react-router-dom
 - styled-components
