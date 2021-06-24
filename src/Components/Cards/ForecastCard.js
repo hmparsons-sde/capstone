@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 
 export default function ForecastCard({ ...forecast }) {
+  console.warn(forecast);
   return (
       <div>
         <CardColumns className='w-50 ml-5 mt-5 justify-content-center'>
@@ -14,7 +15,7 @@ export default function ForecastCard({ ...forecast }) {
             >
             <CardText tag='h4' className='dayOfWeek'>{moment().format('dddd')}, {moment().format('LL')}</CardText>
             <CardText tag="h4" className="week__day mt-2">{new Date(forecast.list[0].dt * 1000).toLocaleTimeString('en-US', { timeZone: 'America/Chicago' })}</CardText>
-              <CardImg src={forecast.list[0].weather.icon} alt="" />
+              <img src={'http://openweathermap.org/img/wn/forecast.list[0].weather[0].icon}.png'} alt="" />
                 <CardText className="pressure" tag="h5">{forecast.list[0].main.pressure} hPa</CardText>
               <br></br>
             <CardText className="weather__description" tag='h6'>{forecast.list[0].main.humidity}% humidity | {forecast.list[0].main.temp}°F</CardText>
