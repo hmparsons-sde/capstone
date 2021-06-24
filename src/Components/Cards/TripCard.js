@@ -58,16 +58,20 @@ const TripCard = ({
     <div>
     <TripItem className='col-auto'>
       <Card key={firebaseKey} inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}>
-      <ButtonToolbar size="lg" className='float-right mb-3 ml-3'>
-          <i className="fas fa-paper-plane mt-2 mr-3" size='6x'></i>
-          <i className='far fa-eye mt-2 mr-3'
+      <CardImg id="cardImg" src={imageUrl} width='100%' height='100%' alt="Card image cap"></CardImg>
+      <CardTitle tag="h1" className='ml-3 mb-1 mt-3'>{title}</CardTitle>
+        <CardText className="mt-2 ml-3 mb-3" tag='h5'>
+         {startDate} - {endDate}
+        </CardText>
+        <ButtonToolbar size="lg" className='justify-content-center mb-4 ml-3'>
+          <i className='far fa-eye fa-lg mt-2 mr-3'
               onClick={() => handleClick('view')}></i>
-          <i className='fas fa-trash-alt mt-2 mr-3'
+          <i className='far fa-trash-alt mt-2 mr-3'
               onClick={() => {
                 handleClick('delete');
               }}
             ></i>
-          <i className='fas fa-pencil-alt mt-2 mr-3'
+          <i className='fa fa-pencil-alt mt-2 mr-3'
               onClick={() => {
                 handleClick('edit');
               }}
@@ -75,11 +79,6 @@ const TripCard = ({
               {onOpenModal ? '' : ''}
           </i>
         </ButtonToolbar>
-      <CardImg id="cardImg" src={imageUrl} width='100%' height='100%' alt="Card image cap"></CardImg>
-      <CardText className="mt-3 ml-3" tag='h5'>
-         {startDate} - {endDate}
-        </CardText>
-      <CardTitle tag="h1" className='ml-3 mb-1'>{title}</CardTitle>
         <Modal
           open={open}
           onClose={onCloseModal}

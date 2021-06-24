@@ -44,12 +44,12 @@ export default function SearchResultView({
       <div className="search-bar">
         <Form
           onSubmit={handleSubmit}
-          className="w-100 flex container p-1 mb-2 bg-light rounded rounded-pill shadow-sm input-group mt-5"
+          className="flex container p-1 bg-light rounded rounded-pill shadow-sm input-group mt-5"
         >
           <Input
             type="text"
             placeholder="enter city name"
-            className="form-control flex-grow-2 rounded rounded-pill border-0 bg-light w-50 ml-3"
+            className="form-control rounded rounded-pill border-0 bg-light ml-3"
             id="value"
             value={userInput}
             aria-describedby="location"
@@ -70,7 +70,6 @@ export default function SearchResultView({
           )}
         </Form>
       </div>
-      <br></br>
       <SearchContainer id="card-container">
         {pressure.map((pressureObj) => (
           <SearchResultCard
