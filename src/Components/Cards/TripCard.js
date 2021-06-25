@@ -54,11 +54,15 @@ const TripCard = ({
     }
   };
 
+  const closeIcon = (
+    <i className="fas fa-times fa-2x mr-3"></i>
+  );
+
   return (
     <div>
     <TripItem className='col-auto'>
       <Card key={firebaseKey} inverse style={{ backgroundColor: '#24232d', borderColor: '#938d94' }}>
-      <CardImg id="cardImg" src={imageUrl} width='100%' height='100%' alt="Card image cap"></CardImg>
+      <CardImg id="cardImg" src={imageUrl} alt="Card image cap"></CardImg>
       <CardTitle tag="h1" className='ml-3 mb-1 mt-3'>{title}</CardTitle>
         <CardText className="mt-2 ml-3 mb-3" tag='h5'>
          {startDate} - {endDate}
@@ -82,13 +86,14 @@ const TripCard = ({
         <Modal
           open={open}
           onClose={onCloseModal}
+          center
+          closeIcon={closeIcon}
           classNames={{
             overlay: 'customOverlay',
             modal: 'customModal',
           }}
           >
           <TripForm
-            formTitle="Edit Trip"
             setTrips={setTrips}
             firebaseKey={firebaseKey}
             title={title}

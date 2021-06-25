@@ -30,6 +30,10 @@ export default function ForecastView() {
     setUserInput('');
   };
 
+  const resetForecastResults = () => {
+    setForecast([]);
+  };
+
   return (
     <div>
       <div className="search-bar">
@@ -54,6 +58,11 @@ export default function ForecastView() {
           >
             <i className="fas fa-search fa-2x"></i>
           </button>
+          {forecast !== [] && (
+            <button onClick={resetForecastResults} className="mr-3 ml-3">
+              <i className="fas fa-times fa-2x"></i>
+            </button>
+          )}
         </Form>
       </div>
       <ForecastContainer className="container-fluid">
