@@ -54,6 +54,10 @@ const TripCard = ({
     }
   };
 
+  const closeIcon = (
+    <i className="fas fa-times fa-2x mr-3"></i>
+  );
+
   return (
     <div>
     <TripItem className='col-auto'>
@@ -82,13 +86,14 @@ const TripCard = ({
         <Modal
           open={open}
           onClose={onCloseModal}
+          center
+          closeIcon={closeIcon}
           classNames={{
             overlay: 'customOverlay',
             modal: 'customModal',
           }}
           >
           <TripForm
-            formTitle="Edit Trip"
             setTrips={setTrips}
             firebaseKey={firebaseKey}
             title={title}

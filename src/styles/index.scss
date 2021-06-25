@@ -96,11 +96,18 @@ img.scale-with-grid {
 
 h1,
 h2,
-h3,
+h3 {
+  font-family: "Raleway", sans-serif;
+  margin-top: 0;
+  color: $mainfont;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Lato", sans-serif;
   margin-top: 0;
   color: $mainfont;
   margin-bottom: 2rem;
