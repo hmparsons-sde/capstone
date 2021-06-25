@@ -37,7 +37,6 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - User can see the 5-day forecast for the selected trip location.
 - Unauthenticated visitors can search for weather data.
 - Unauthenticated visitors can view the 5-day forecast for a searched city.
-- App is fully responsive
 ### Scientific Source Material
 - Okuma, Hirohisa, Yumiko Okuma, and Yasuhisa Kitagawa. 2015. “Examination of Fluctuations in Atmospheric Pressure Related to Migraine.” SpringerPlus 4 (1): 790.
 - Link to digital article: https://bit.ly/3uKIn9M
@@ -65,7 +64,6 @@ https://github.com/hmparsons-sde/capstone/projects/1
 - Github
 ## Screenshots
 ![pressure](https://user-images.githubusercontent.com/67122062/122800893-1800f300-d289-11eb-9f09-b7ab3bfab4a0.png)
-![forecastPage](https://user-images.githubusercontent.com/67122062/123338554-a8039e80-d50e-11eb-9521-0a0f6d918c34.png)
 ## Loom Video Walk-through
 ## Contributors
 Holly Parsons (@hmparsons-sde)
