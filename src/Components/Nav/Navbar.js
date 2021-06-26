@@ -49,7 +49,7 @@ const NavBar = ({ user }) => {
                   </Button>
                 ) : (
                   <Button
-                    className="mt-3 m1-2 mr-3 btn-md"
+                    className="mt-3 ml-2 mr-3 btn-md"
                     color='secondary'
                     onClick={signInUser}
                   >

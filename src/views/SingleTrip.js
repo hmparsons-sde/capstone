@@ -8,6 +8,7 @@ import { getTripLocation } from '../helpers/data/locationData';
 
 const TripLocationContainer = styled.div`
   margin-left: 15%;
+  margin-top: 5%;
   padding-left: 20px;
   display: flex;
   flex-flow: wrap;

@@ -44,7 +44,7 @@ export default function SearchResultView({
       <div className="search-bar">
         <Form
           onSubmit={handleSubmit}
-          className="flex container p-1 bg-light rounded rounded-pill shadow-sm input-group mt-5"
+          className="flex container bg-light rounded rounded-pill shadow-sm input-group mt-5"
         >
           <Input
             type="text"
